@@ -1,0 +1,2580 @@
+Call:
+rpart(formula = Ever30plus_n12MTH ~ ., data = df3, method = "class", 
+    cp = 0.001)
+  n= 75897 
+
+            CP nsplit rel error    xerror       xstd
+1  0.006018519      0 1.0000000 1.0000000 0.01889959
+2  0.005185185     11 0.9255556 0.9600000 0.01853140
+3  0.005111111     12 0.9203704 0.9259259 0.01821097
+4  0.004444444     17 0.8948148 0.9181481 0.01813692
+5  0.003703704     19 0.8859259 0.9074074 0.01803408
+6  0.003086420     20 0.8822222 0.8966667 0.01793057
+7  0.001898148     23 0.8729630 0.8766667 0.01773599
+8  0.001851852     32 0.8540741 0.8577778 0.01754996
+9  0.001790123     59 0.7829630 0.8555556 0.01752792
+10 0.001666667     71 0.7603704 0.8437037 0.01740988
+11 0.001604938     73 0.7570370 0.8351852 0.01732447
+12 0.001481481     76 0.7522222 0.8322222 0.01729465
+13 0.001296296     77 0.7507407 0.8337037 0.01730957
+14 0.001111111     89 0.7351852 0.8296296 0.01726851
+15 0.001037037    104 0.7185185 0.8300000 0.01727225
+16 0.001000000    113 0.7077778 0.8285185 0.01725730
+
+Variable importance
+     Number_of_1plus           All_0_6Mth       EverXplus_5MTH       EverXplus_4MTH       EverXplus_3MTH         Max_Momentum               Num_PL         nactiveloans 
+                   7                    7                    7                    7                    6                    5                    4                    4 
+            Num_A_PL               nloans             Num_A_HL               Num_HL               Num_CC             Num_A_CL             Num_A_HP               Num_HP 
+                   3                    3                    3                    3                    3                    2                    2                    2 
+              Num_CL             Num_A_CC             Num_A_OD               Num_OD  DATE_ACCOUNT_OPENED                 MOB1 Amount_Owe_Momentum3 Amount_Owe_Momentum2 
+                   2                    2                    2                    2                    1                    1                    1                    1 
+Amount_Owe_Momentum1 Amount_Owe_Momentum4         Utilization2          Amount_owe1         Utilization1 Amount_Owe_Momentum5         Utilization4 AVG_Utilization_6MTH 
+                   1                    1                    1                    1                    1                    1                    1                    1 
+        ACCOUNT_TYPE         Utilization3 AVG_Utilization_3MTH 
+                   1                    1                    1 
+
+Node number 1: 75897 observations,    complexity param=0.006018519
+  predicted class=N  expected loss=0.03557453  P(node) =1
+    class counts: 73197  2700
+   probabilities: 0.964 0.036 
+  left son=2 (71326 obs) right son=3 (4571 obs)
+  Primary splits:
+      All_0_6Mth      splits as  RL, improve=439.3208, (0 missing)
+      ALL_0_below6Mth splits as  RL, improve=439.3208, (0 missing)
+      EverXplus_6MTH  splits as  LR, improve=439.3208, (0 missing)
+      Number_of_1plus < 0.5         to the left,  improve=439.3208, (0 missing)
+      EverXplus_5MTH  splits as  LR, improve=436.5627, (0 missing)
+  Surrogate splits:
+      Number_of_1plus < 0.5         to the left,  agree=1.000, adj=1.000, (0 split)
+      EverXplus_5MTH  splits as  LR, agree=0.998, adj=0.968, (0 split)
+      EverXplus_4MTH  splits as  LR, agree=0.996, adj=0.931, (0 split)
+      EverXplus_3MTH  splits as  LR, agree=0.993, adj=0.886, (0 split)
+      Max_Momentum    < 0.5         to the left,  agree=0.985, adj=0.758, (0 split)
+
+Node number 2: 71326 observations,    complexity param=0.005111111
+  predicted class=N  expected loss=0.02195553  P(node) =0.9397736
+    class counts: 69760  1566
+   probabilities: 0.978 0.022 
+  left son=4 (68902 obs) right son=5 (2424 obs)
+  Primary splits:
+      Num_CL   < 1.5         to the left,  improve=34.77513, (0 missing)
+      Num_A_CL < 1.5         to the left,  improve=33.49434, (0 missing)
+      Num_OD   < 5.5         to the left,  improve=28.70317, (0 missing)
+      Num_PL   < 15.5        to the left,  improve=24.87538, (0 missing)
+      Num_A_PL < 15          to the left,  improve=24.87538, (0 missing)
+  Surrogate splits:
+      Num_A_CL     < 1.5         to the left,  agree=0.999, adj=0.965, (0 split)
+      ACCOUNT_TYPE splits as  RLLLLLLLLLL, agree=0.970, adj=0.112, (0 split)
+      Num_HP       < 19          to the left,  agree=0.968, adj=0.046, (0 split)
+      Num_A_HP     < 19          to the left,  agree=0.968, adj=0.046, (0 split)
+      Num_HL       < 15          to the left,  agree=0.967, adj=0.033, (0 split)
+
+Node number 3: 4571 observations,    complexity param=0.006018519
+  predicted class=N  expected loss=0.2480858  P(node) =0.06022636
+    class counts:  3437  1134
+   probabilities: 0.752 0.248 
+  left son=6 (3922 obs) right son=7 (649 obs)
+  Primary splits:
+      Num_CL               < 0.5         to the left,  improve=69.38581, (0 missing)
+      Num_A_CL             < 0.5         to the left,  improve=65.42979, (0 missing)
+      Amount_Owe_Momentum2 < 1520.5      to the left,  improve=61.39626, (0 missing)
+      Amount_Owe_Momentum3 < 1564        to the left,  improve=56.76010, (0 missing)
+      Num_PL               < 11.5        to the left,  improve=52.54327, (0 missing)
+  Surrogate splits:
+      Num_A_CL     < 0.5         to the left,  agree=0.986, adj=0.904, (0 split)
+      ACCOUNT_TYPE splits as  RLL---LLLLL, agree=0.891, adj=0.234, (0 split)
+      nactiveloans < 15.5        to the left,  agree=0.869, adj=0.074, (0 split)
+      nloans       < 20.5        to the left,  agree=0.865, adj=0.051, (0 split)
+      Num_A_PL     < 9.5         to the left,  agree=0.863, adj=0.034, (0 split)
+
+Node number 4: 68902 observations,    complexity param=0.001898148
+  predicted class=N  expected loss=0.01902702  P(node) =0.9078356
+    class counts: 67591  1311
+   probabilities: 0.981 0.019 
+  left son=8 (50474 obs) right son=9 (18428 obs)
+  Primary splits:
+      AVG_Utilization_6MTH < 0.775       to the left,  improve=18.18736, (0 missing)
+      AVG_Utilization_3MTH < 0.855       to the left,  improve=17.93211, (0 missing)
+      Utilization1         < 0.855       to the left,  improve=17.43027, (0 missing)
+      Utilization6         < 0.865       to the left,  improve=17.30675, (0 missing)
+      Utilization5         < 0.865       to the left,  improve=16.98678, (0 missing)
+  Surrogate splits:
+      AVG_Utilization_3MTH < 0.765       to the left,  agree=0.968, adj=0.882, (0 split)
+      Utilization3         < 0.775       to the left,  agree=0.962, adj=0.858, (0 split)
+      Utilization4         < 0.775       to the left,  agree=0.961, adj=0.854, (0 split)
+      Utilization2         < 0.765       to the left,  agree=0.957, adj=0.840, (0 split)
+      Utilization5         < 0.785       to the left,  agree=0.953, adj=0.826, (0 split)
+
+Node number 5: 2424 observations,    complexity param=0.005111111
+  predicted class=N  expected loss=0.105198  P(node) =0.03193802
+    class counts:  2169   255
+   probabilities: 0.895 0.105 
+  left son=10 (2409 obs) right son=11 (15 obs)
+  Primary splits:
+      Num_OD   < 5           to the left,  improve=24.16968, (0 missing)
+      Num_A_OD < 4.5         to the left,  improve=24.16968, (0 missing)
+      Num_PL   < 15          to the left,  improve=20.92968, (0 missing)
+      Num_A_PL < 15          to the left,  improve=20.92968, (0 missing)
+      Num_A_CL < 8           to the left,  improve=17.86439, (0 missing)
+  Surrogate splits:
+      Num_A_OD < 4.5         to the left,  agree=1, adj=1, (0 split)
+
+Node number 6: 3922 observations,    complexity param=0.006018519
+  predicted class=N  expected loss=0.2126466  P(node) =0.0516753
+    class counts:  3088   834
+   probabilities: 0.787 0.213 
+  left son=12 (3128 obs) right son=13 (794 obs)
+  Primary splits:
+      Amount_Owe_Momentum2 < 1652.5      to the left,  improve=42.61407, (0 missing)
+      Num_PL               < 8.5         to the left,  improve=39.44034, (0 missing)
+      Amount_Owe_Momentum3 < 1587.5      to the left,  improve=37.60970, (0 missing)
+      nloans               < 26.5        to the left,  improve=35.09720, (0 missing)
+      Momentum2            < 0.5         to the left,  improve=31.20833, (0 missing)
+  Surrogate splits:
+      Amount_Owe_Momentum1 < 1593.5      to the left,  agree=0.894, adj=0.476, (0 split)
+      Amount_Owe_Momentum3 < 1652        to the left,  agree=0.883, adj=0.422, (0 split)
+      Amount_Owe_Momentum4 < 1594.5      to the left,  agree=0.859, adj=0.302, (0 split)
+      Amount_Owe_Momentum5 < 1784        to the left,  agree=0.854, adj=0.281, (0 split)
+      Amount_owe1          < 976338      to the left,  agree=0.844, adj=0.229, (0 split)
+
+Node number 7: 649 observations,    complexity param=0.006018519
+  predicted class=N  expected loss=0.4622496  P(node) =0.008551063
+    class counts:   349   300
+   probabilities: 0.538 0.462 
+  left son=14 (41 obs) right son=15 (608 obs)
+  Primary splits:
+      Num_A_HP             < 2.5         to the right, improve=18.70286, (0 missing)
+      Num_RD               < 0.5         to the left,  improve=18.25622, (0 missing)
+      Amount_Owe_Momentum3 < 83.5        to the left,  improve=16.59151, (0 missing)
+      Num_PL               < 9.5         to the left,  improve=16.29332, (0 missing)
+      Num_A_PL             < 9.5         to the left,  improve=16.29332, (0 missing)
+  Surrogate splits:
+      Num_HP               < 2.5         to the right, agree=0.966, adj=0.463, (0 split)
+      nloans               < 40          to the right, agree=0.940, adj=0.049, (0 split)
+      nactiveloans         < 39          to the right, agree=0.940, adj=0.049, (0 split)
+      Amount_Owe_Momentum4 < 92844.5     to the right, agree=0.938, adj=0.024, (0 split)
+      Num_CC               < 14.5        to the right, agree=0.938, adj=0.024, (0 split)
+
+Node number 8: 50474 observations,    complexity param=0.001898148
+  predicted class=N  expected loss=0.01208543  P(node) =0.6650329
+    class counts: 49864   610
+   probabilities: 0.988 0.012 
+  left son=16 (50467 obs) right son=17 (7 obs)
+  Primary splits:
+      Num_RD       < 1.5         to the left,  improve=6.904151, (0 missing)
+      nactiveloans < 33.5        to the left,  improve=4.296137, (0 missing)
+      Num_A_PL     < 10.5        to the left,  improve=3.905937, (0 missing)
+      Num_A_OTH_HP < 0.5         to the left,  improve=3.850831, (0 missing)
+      Num_OTH_HP   < 0.5         to the left,  improve=3.589076, (0 missing)
+  Surrogate splits:
+      Num_A_RD < 1.5         to the left,  agree=1, adj=0.286, (0 split)
+
+Node number 9: 18428 observations,    complexity param=0.001898148
+  predicted class=N  expected loss=0.03803994  P(node) =0.2428027
+    class counts: 17727   701
+   probabilities: 0.962 0.038 
+  left son=18 (18300 obs) right son=19 (128 obs)
+  Primary splits:
+      Num_PL       < 9.5         to the left,  improve=12.45128, (0 missing)
+      nloans       < 26.5        to the left,  improve=12.02136, (0 missing)
+      Num_HL       < 10.5        to the left,  improve=11.11285, (0 missing)
+      Num_A_HL     < 10.5        to the left,  improve=11.11285, (0 missing)
+      nactiveloans < 25.5        to the left,  improve=10.39180, (0 missing)
+  Surrogate splits:
+      Num_A_PL     < 9.5         to the left,  agree=0.999, adj=0.891, (0 split)
+      nloans       < 33.5        to the left,  agree=0.994, adj=0.180, (0 split)
+      nactiveloans < 32.5        to the left,  agree=0.994, adj=0.078, (0 split)
+      Num_CC       < 34          to the left,  agree=0.994, adj=0.070, (0 split)
+      Num_A_CC     < 34          to the left,  agree=0.994, adj=0.070, (0 split)
+
+Node number 10: 2409 observations,    complexity param=0.005111111
+  predicted class=N  expected loss=0.0996264  P(node) =0.03174038
+    class counts:  2169   240
+   probabilities: 0.900 0.100 
+  left son=20 (2396 obs) right son=21 (13 obs)
+  Primary splits:
+      Num_PL   < 15          to the left,  improve=21.19185, (0 missing)
+      Num_A_PL < 15          to the left,  improve=21.19185, (0 missing)
+      Num_A_CL < 8           to the left,  improve=18.57424, (0 missing)
+      Num_CL   < 7.5         to the left,  improve=15.52678, (0 missing)
+      Num_OL   < 0.5         to the left,  improve=14.36876, (0 missing)
+  Surrogate splits:
+      Num_A_PL < 15          to the left,  agree=1, adj=1, (0 split)
+
+Node number 11: 15 observations
+  predicted class=Y  expected loss=0  P(node) =0.0001976363
+    class counts:     0    15
+   probabilities: 0.000 1.000 
+
+Node number 12: 3128 observations,    complexity param=0.006018519
+  predicted class=N  expected loss=0.1755115  P(node) =0.04121375
+    class counts:  2579   549
+   probabilities: 0.824 0.176 
+  left son=24 (3109 obs) right son=25 (19 obs)
+  Primary splits:
+      Num_PL              < 11.5        to the left,  improve=25.98955, (0 missing)
+      nloans              < 26.5        to the left,  improve=24.71518, (0 missing)
+      Momentum2           < 0.5         to the left,  improve=15.22493, (0 missing)
+      DATE_ACCOUNT_OPENED < 16086.5     to the left,  improve=14.50031, (0 missing)
+      Num_HP              < 0.5         to the left,  improve=14.22713, (0 missing)
+  Surrogate splits:
+      nloans < 30          to the left,  agree=1, adj=0.947, (0 split)
+
+Node number 13: 794 observations,    complexity param=0.006018519
+  predicted class=N  expected loss=0.3589421  P(node) =0.01046155
+    class counts:   509   285
+   probabilities: 0.641 0.359 
+  left son=26 (723 obs) right son=27 (71 obs)
+  Primary splits:
+      Num_PL              < 7.5         to the left,  improve=25.15383, (0 missing)
+      Utilization3        < 0.965       to the left,  improve=17.93598, (0 missing)
+      DATE_ACCOUNT_OPENED < 16148       to the left,  improve=17.31960, (0 missing)
+      Utilization2        < 0.965       to the left,  improve=16.56777, (0 missing)
+      nloans              < 18.5        to the left,  improve=15.71606, (0 missing)
+  Surrogate splits:
+      nloans       < 19.5        to the left,  agree=0.943, adj=0.366, (0 split)
+      Num_A_PL     < 7.5         to the left,  agree=0.927, adj=0.183, (0 split)
+      nactiveloans < 15.5        to the left,  agree=0.924, adj=0.155, (0 split)
+      Num_HP       < 4.5         to the left,  agree=0.922, adj=0.127, (0 split)
+      Num_A_HP     < 4.5         to the left,  agree=0.922, adj=0.127, (0 split)
+
+Node number 14: 41 observations
+  predicted class=N  expected loss=0  P(node) =0.0005402058
+    class counts:    41     0
+   probabilities: 1.000 0.000 
+
+Node number 15: 608 observations,    complexity param=0.006018519
+  predicted class=N  expected loss=0.4934211  P(node) =0.008010857
+    class counts:   308   300
+   probabilities: 0.507 0.493 
+  left son=30 (267 obs) right son=31 (341 obs)
+  Primary splits:
+      DATE_ACCOUNT_OPENED < 15469       to the left,  improve=16.12178, (0 missing)
+      Num_RD              < 0.5         to the left,  improve=15.95019, (0 missing)
+      MOB1                < 38.5        to the right, improve=15.34737, (0 missing)
+      Num_PL              < 9.5         to the left,  improve=14.50159, (0 missing)
+      Num_A_PL            < 9.5         to the left,  improve=14.50159, (0 missing)
+  Surrogate splits:
+      MOB1                 < 40.5        to the right, agree=0.992, adj=0.981, (0 split)
+      Utilization6         < 0.775       to the left,  agree=0.656, adj=0.217, (0 split)
+      Number_of_1          < 0.5         to the left,  agree=0.655, adj=0.213, (0 split)
+      AVG_Utilization_6MTH < 0.785       to the left,  agree=0.653, adj=0.210, (0 split)
+      Utilization4         < 0.765       to the left,  agree=0.651, adj=0.206, (0 split)
+
+Node number 16: 50467 observations,    complexity param=0.001898148
+  predicted class=N  expected loss=0.01198803  P(node) =0.6649406
+    class counts: 49862   605
+   probabilities: 0.988 0.012 
+  left son=32 (50398 obs) right son=33 (69 obs)
+  Primary splits:
+      nactiveloans < 33.5        to the left,  improve=4.300886, (0 missing)
+      Num_A_PL     < 10.5        to the left,  improve=3.910658, (0 missing)
+      Num_A_OTH_HP < 0.5         to the left,  improve=3.869303, (0 missing)
+      Num_OTH_HP   < 0.5         to the left,  improve=3.607829, (0 missing)
+      Num_PL       < 9.5         to the left,  improve=3.443032, (0 missing)
+  Surrogate splits:
+      nloans   < 40.5        to the left,  agree=1.000, adj=0.812, (0 split)
+      Num_CC   < 34          to the left,  agree=0.999, adj=0.609, (0 split)
+      Num_A_CC < 34          to the left,  agree=0.999, adj=0.609, (0 split)
+      Num_PL   < 11.5        to the left,  agree=0.999, adj=0.536, (0 split)
+      Num_A_PL < 11.5        to the left,  agree=0.999, adj=0.536, (0 split)
+
+Node number 17: 7 observations
+  predicted class=Y  expected loss=0.2857143  P(node) =9.223026e-05
+    class counts:     2     5
+   probabilities: 0.286 0.714 
+
+Node number 18: 18300 observations,    complexity param=0.001898148
+  predicted class=N  expected loss=0.03650273  P(node) =0.2411162
+    class counts: 17632   668
+   probabilities: 0.963 0.037 
+  left son=36 (18274 obs) right son=37 (26 obs)
+  Primary splits:
+      Num_HL               < 10.5        to the left,  improve=11.187040, (0 missing)
+      Num_A_HL             < 10.5        to the left,  improve=11.187040, (0 missing)
+      Amount_Owe_Momentum1 < -358.5      to the left,  improve= 5.528141, (0 missing)
+      Num_RD               < 1.5         to the left,  improve= 4.700379, (0 missing)
+      Num_A_OTH_HP         < 0.5         to the left,  improve= 4.223919, (0 missing)
+  Surrogate splits:
+      Num_A_HL < 10.5        to the left,  agree=1, adj=1, (0 split)
+
+Node number 19: 128 observations,    complexity param=0.001898148
+  predicted class=N  expected loss=0.2578125  P(node) =0.001686496
+    class counts:    95    33
+   probabilities: 0.742 0.258 
+  left son=38 (104 obs) right son=39 (24 obs)
+  Primary splits:
+      Num_HL   < 0.5         to the right, improve=14.31130, (0 missing)
+      Num_A_HL < 0.5         to the right, improve=14.31130, (0 missing)
+      Num_OD   < 1.5         to the right, improve=13.66043, (0 missing)
+      Num_A_OD < 1.5         to the right, improve=12.02438, (0 missing)
+      Num_CC   < 21          to the left,  improve=11.43982, (0 missing)
+  Surrogate splits:
+      Num_A_HL              < 0.5         to the right, agree=1.000, adj=1.000, (0 split)
+      Num_CC                < 17.5        to the left,  agree=0.914, adj=0.542, (0 split)
+      Num_A_CC              < 17.5        to the left,  agree=0.914, adj=0.542, (0 split)
+      nactiveloans          < 33.5        to the left,  agree=0.883, adj=0.375, (0 split)
+      Utilization_Momentum3 < -0.28       to the right, agree=0.836, adj=0.125, (0 split)
+
+Node number 20: 2396 observations,    complexity param=0.005111111
+  predicted class=N  expected loss=0.09474124  P(node) =0.0315691
+    class counts:  2169   227
+   probabilities: 0.905 0.095 
+  left son=40 (2291 obs) right son=41 (105 obs)
+  Primary splits:
+      Num_A_CL < 8           to the left,  improve=19.20819, (0 missing)
+      Num_CL   < 7.5         to the left,  improve=16.16576, (0 missing)
+      Num_PL   < 1.5         to the left,  improve=15.21785, (0 missing)
+      Num_OL   < 0.5         to the left,  improve=14.72302, (0 missing)
+      Num_A_OL < 0.5         to the left,  improve=14.72302, (0 missing)
+  Surrogate splits:
+      Num_CL       < 8.5         to the left,  agree=0.992, adj=0.819, (0 split)
+      Num_OTH_HP   < 2.5         to the left,  agree=0.966, adj=0.229, (0 split)
+      Num_A_OTH_HP < 2           to the left,  agree=0.966, adj=0.229, (0 split)
+
+Node number 21: 13 observations
+  predicted class=Y  expected loss=0  P(node) =0.0001712848
+    class counts:     0    13
+   probabilities: 0.000 1.000 
+
+Node number 24: 3109 observations,    complexity param=0.001790123
+  predicted class=N  expected loss=0.1704728  P(node) =0.04096341
+    class counts:  2579   530
+   probabilities: 0.830 0.170 
+  left son=48 (2067 obs) right son=49 (1042 obs)
+  Primary splits:
+      Momentum2           < 0.5         to the left,  improve=16.83673, (0 missing)
+      DATE_ACCOUNT_OPENED < 16086.5     to the left,  improve=16.19944, (0 missing)
+      MOB1                < 19.5        to the right, improve=15.38093, (0 missing)
+      DEFAULT_DATE        < 16324.5     to the left,  improve=12.71832, (0 missing)
+      Num_HL              < 10.5        to the left,  improve=12.42204, (0 missing)
+  Surrogate splits:
+      Number_of_2  < 0.5         to the left,  agree=0.760, adj=0.283, (0 split)
+      Min_Momentum < 0.5         to the left,  agree=0.745, adj=0.239, (0 split)
+      Momentum1    < 0.5         to the left,  agree=0.732, adj=0.202, (0 split)
+      Momentum3    < 0.5         to the left,  agree=0.724, adj=0.177, (0 split)
+      DEFAULT_DATE < 16344.5     to the left,  agree=0.722, adj=0.170, (0 split)
+
+Node number 25: 19 observations
+  predicted class=Y  expected loss=0  P(node) =0.0002503393
+    class counts:     0    19
+   probabilities: 0.000 1.000 
+
+Node number 26: 723 observations,    complexity param=0.004444444
+  predicted class=N  expected loss=0.3195021  P(node) =0.009526068
+    class counts:   492   231
+   probabilities: 0.680 0.320 
+  left son=52 (497 obs) right son=53 (226 obs)
+  Primary splits:
+      Amount_Owe_Momentum3 < 6485.5      to the left,  improve=15.58388, (0 missing)
+      Amount_owe3          < 151652.5    to the left,  improve=11.95919, (0 missing)
+      DATE_ACCOUNT_OPENED  < 16023.5     to the left,  improve=11.75601, (0 missing)
+      Amount_owe2          < 154057      to the left,  improve=11.73143, (0 missing)
+      Amount_owe4          < 149973      to the left,  improve=11.73143, (0 missing)
+  Surrogate splits:
+      Amount_Owe_Momentum4 < 6158.5      to the left,  agree=0.842, adj=0.496, (0 split)
+      Amount_Owe_Momentum1 < 6292        to the left,  agree=0.841, adj=0.491, (0 split)
+      Amount_owe2          < 1185574     to the left,  agree=0.824, adj=0.438, (0 split)
+      Amount_owe1          < 1185027     to the left,  agree=0.822, adj=0.429, (0 split)
+      Amount_owe3          < 1174933     to the left,  agree=0.822, adj=0.429, (0 split)
+
+Node number 27: 71 observations,    complexity param=0.001666667
+  predicted class=Y  expected loss=0.2394366  P(node) =0.0009354783
+    class counts:    17    54
+   probabilities: 0.239 0.761 
+  left son=54 (25 obs) right son=55 (46 obs)
+  Primary splits:
+      Num_A_HL             < 1.5         to the right, improve=4.466111, (0 missing)
+      DATE_ACCOUNT_OPENED  < 16071.5     to the left,  improve=4.424372, (0 missing)
+      MOB1                 < 20.5        to the right, improve=4.424372, (0 missing)
+      nactiveloans         < 6.5         to the right, improve=3.837560, (0 missing)
+      Amount_Owe_Momentum3 < -798        to the left,  improve=3.502012, (0 missing)
+  Surrogate splits:
+      Num_A_CC        < 4.5         to the right, agree=0.859, adj=0.60, (0 split)
+      Num_HL          < 1.5         to the right, agree=0.775, adj=0.36, (0 split)
+      Ever30plus_5MTH splits as  LR, agree=0.746, adj=0.28, (0 split)
+      Ever30plus_4MTH splits as  LR, agree=0.746, adj=0.28, (0 split)
+      Ever30plus_3MTH splits as  LR, agree=0.746, adj=0.28, (0 split)
+
+Node number 30: 267 observations,    complexity param=0.006018519
+  predicted class=N  expected loss=0.3632959  P(node) =0.003517926
+    class counts:   170    97
+   probabilities: 0.637 0.363 
+  left son=60 (239 obs) right son=61 (28 obs)
+  Primary splits:
+      Num_A_OD     < 1.5         to the left,  improve=17.544210, (0 missing)
+      Num_HL       < 6.5         to the left,  improve=12.885680, (0 missing)
+      Num_A_HL     < 6           to the left,  improve=12.885680, (0 missing)
+      nactiveloans < 2.5         to the right, improve= 9.922083, (0 missing)
+      Num_PL       < 3.5         to the left,  improve= 9.306289, (0 missing)
+  Surrogate splits:
+      Num_HL              < 6.5         to the left,  agree=0.951, adj=0.536, (0 split)
+      Num_A_HL            < 6           to the left,  agree=0.951, adj=0.536, (0 split)
+      Momentum4           < -1.5        to the right, agree=0.903, adj=0.071, (0 split)
+      DATE_ACCOUNT_OPENED < 11570.5     to the right, agree=0.899, adj=0.036, (0 split)
+      MOB1                < 168.5       to the left,  agree=0.899, adj=0.036, (0 split)
+
+Node number 31: 341 observations,    complexity param=0.006018519
+  predicted class=Y  expected loss=0.4046921  P(node) =0.004492931
+    class counts:   138   203
+   probabilities: 0.405 0.595 
+  left son=62 (42 obs) right son=63 (299 obs)
+  Primary splits:
+      nloans                < 6.5         to the left,  improve=12.224080, (0 missing)
+      Num_A_CC              < 0.5         to the left,  improve= 9.971502, (0 missing)
+      Num_RD                < 1.5         to the left,  improve= 9.604348, (0 missing)
+      nactiveloans          < 6.5         to the left,  improve= 9.374946, (0 missing)
+      Utilization_Momentum1 < 0.005       to the left,  improve= 8.635450, (0 missing)
+  Surrogate splits:
+      nactiveloans   < 5.5         to the left,  agree=0.953, adj=0.619, (0 split)
+      Num_PL         < 0.5         to the left,  agree=0.906, adj=0.238, (0 split)
+      Num_CC         < 0.5         to the left,  agree=0.889, adj=0.095, (0 split)
+      ACCOUNT_STATUS splits as  RR-RRLR-, agree=0.880, adj=0.024, (0 split)
+      Num_A_PL       < 0.5         to the left,  agree=0.880, adj=0.024, (0 split)
+
+Node number 32: 50398 observations
+  predicted class=N  expected loss=0.0117465  P(node) =0.6640315
+    class counts: 49806   592
+   probabilities: 0.988 0.012 
+
+Node number 33: 69 observations,    complexity param=0.001898148
+  predicted class=N  expected loss=0.1884058  P(node) =0.0009091268
+    class counts:    56    13
+   probabilities: 0.812 0.188 
+  left son=66 (56 obs) right son=67 (13 obs)
+  Primary splits:
+      Num_HP   < 0.5         to the right, improve=21.10145, (0 missing)
+      Num_HL   < 1.5         to the right, improve=21.10145, (0 missing)
+      Num_A_HP < 0.5         to the right, improve=21.10145, (0 missing)
+      Num_A_HL < 1.5         to the right, improve=21.10145, (0 missing)
+      nloans   < 40          to the right, improve=21.10145, (0 missing)
+  Surrogate splits:
+      Num_HL       < 1.5         to the right, agree=1, adj=1, (0 split)
+      Num_A_HP     < 0.5         to the right, agree=1, adj=1, (0 split)
+      Num_A_HL     < 1.5         to the right, agree=1, adj=1, (0 split)
+      nloans       < 40          to the right, agree=1, adj=1, (0 split)
+      nactiveloans < 39.5        to the right, agree=1, adj=1, (0 split)
+
+Node number 36: 18274 observations
+  predicted class=N  expected loss=0.03584327  P(node) =0.2407737
+    class counts: 17619   655
+   probabilities: 0.964 0.036 
+
+Node number 37: 26 observations,    complexity param=0.001898148
+  predicted class=N  expected loss=0.5  P(node) =0.0003425695
+    class counts:    13    13
+   probabilities: 0.500 0.500 
+  left son=74 (13 obs) right son=75 (13 obs)
+  Primary splits:
+      Num_PL   < 3.5         to the left,  improve=13, (0 missing)
+      Num_CC   < 8           to the left,  improve=13, (0 missing)
+      Num_HP   < 0.5         to the left,  improve=13, (0 missing)
+      Num_A_PL < 3           to the left,  improve=13, (0 missing)
+      Num_A_CC < 8           to the left,  improve=13, (0 missing)
+  Surrogate splits:
+      Num_CC   < 8           to the left,  agree=1, adj=1, (0 split)
+      Num_HP   < 0.5         to the left,  agree=1, adj=1, (0 split)
+      Num_A_PL < 3           to the left,  agree=1, adj=1, (0 split)
+      Num_A_CC < 8           to the left,  agree=1, adj=1, (0 split)
+      Num_A_HP < 0.5         to the left,  agree=1, adj=1, (0 split)
+
+Node number 38: 104 observations,    complexity param=0.001898148
+  predicted class=N  expected loss=0.1442308  P(node) =0.001370278
+    class counts:    89    15
+   probabilities: 0.856 0.144 
+  left son=76 (94 obs) right son=77 (10 obs)
+  Primary splits:
+      Num_HL      < 5.5         to the left,  improve=16.204990, (0 missing)
+      Num_A_HL    < 5.5         to the left,  improve=16.204990, (0 missing)
+      stdUtil1to6 < 0.006324555 to the right, improve= 5.510286, (0 missing)
+      Num_OD      < 1.5         to the right, improve= 4.856750, (0 missing)
+      stdUtil456  < 0.007886751 to the right, improve= 4.689026, (0 missing)
+  Surrogate splits:
+      Num_A_HL     < 5.5         to the left,  agree=1.000, adj=1.0, (0 split)
+      Utilization3 < 0.695       to the right, agree=0.913, adj=0.1, (0 split)
+
+Node number 39: 24 observations,    complexity param=0.001111111
+  predicted class=Y  expected loss=0.25  P(node) =0.000316218
+    class counts:     6    18
+   probabilities: 0.250 0.750 
+  left son=78 (7 obs) right son=79 (17 obs)
+  Primary splits:
+      Amount_Owe_Momentum3  < -3056       to the left,  improve=4.260504, (0 missing)
+      Utilization_Momentum3 < 0.005       to the left,  improve=2.538462, (0 missing)
+      Utilization1          < 0.975       to the left,  improve=1.800000, (0 missing)
+      Amount_Owe_Momentum4  < -2141.5     to the left,  improve=1.699301, (0 missing)
+      Amount_owe1           < 68073       to the left,  improve=1.500000, (0 missing)
+  Surrogate splits:
+      Num_CC   < 21          to the left,  agree=0.875, adj=0.571, (0 split)
+      Num_HP   < 1           to the right, agree=0.875, adj=0.571, (0 split)
+      Num_A_PL < 10.5        to the left,  agree=0.875, adj=0.571, (0 split)
+      Num_A_CC < 21          to the left,  agree=0.875, adj=0.571, (0 split)
+      Num_A_HP < 0.5         to the right, agree=0.875, adj=0.571, (0 split)
+
+Node number 40: 2291 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.08118725  P(node) =0.03018565
+    class counts:  2105   186
+   probabilities: 0.919 0.081 
+  left son=80 (1011 obs) right son=81 (1280 obs)
+  Primary splits:
+      Num_PL              < 1.5         to the left,  improve=18.910140, (0 missing)
+      Num_A_PL            < 1.5         to the left,  improve=16.132070, (0 missing)
+      ACCOUNT_STATUS      splits as  LL---RR-, improve= 9.765587, (0 missing)
+      ACCOUNT_STATUS_CODE splits as  LLR, improve= 9.765587, (0 missing)
+      Loan_amount1        < 9004        to the right, improve= 8.868839, (0 missing)
+  Surrogate splits:
+      Num_A_PL     < 1.5         to the left,  agree=0.992, adj=0.981, (0 split)
+      nloans       < 13.5        to the left,  agree=0.694, adj=0.307, (0 split)
+      nactiveloans < 13.5        to the left,  agree=0.681, adj=0.277, (0 split)
+      Num_HL       < 0.5         to the left,  agree=0.649, adj=0.204, (0 split)
+      Num_A_HL     < 0.5         to the left,  agree=0.649, adj=0.204, (0 split)
+
+Node number 41: 105 observations,    complexity param=0.005111111
+  predicted class=N  expected loss=0.3904762  P(node) =0.001383454
+    class counts:    64    41
+   probabilities: 0.610 0.390 
+  left son=82 (64 obs) right son=83 (41 obs)
+  Primary splits:
+      Num_HP   < 0.5         to the right, improve=49.98095, (0 missing)
+      Num_HL   < 3           to the left,  improve=49.98095, (0 missing)
+      Num_A_HP < 0.5         to the right, improve=49.98095, (0 missing)
+      Num_A_HL < 3           to the left,  improve=49.98095, (0 missing)
+      Num_CC   < 7.5         to the left,  improve=21.34603, (0 missing)
+  Surrogate splits:
+      Num_HL   < 3           to the left,  agree=1.000, adj=1.000, (0 split)
+      Num_A_HP < 0.5         to the right, agree=1.000, adj=1.000, (0 split)
+      Num_A_HL < 3           to the left,  agree=1.000, adj=1.000, (0 split)
+      Num_PL   < 2           to the right, agree=0.819, adj=0.537, (0 split)
+      Num_CC   < 11          to the left,  agree=0.819, adj=0.537, (0 split)
+
+Node number 48: 2067 observations,    complexity param=0.001790123
+  predicted class=N  expected loss=0.1335269  P(node) =0.02723428
+    class counts:  1791   276
+   probabilities: 0.866 0.134 
+  left son=96 (2060 obs) right son=97 (7 obs)
+  Primary splits:
+      Num_HL              < 10.5        to the left,  improve=10.546580, (0 missing)
+      Num_A_HL            < 10          to the left,  improve=10.546580, (0 missing)
+      DATE_ACCOUNT_OPENED < 16088       to the left,  improve= 5.630427, (0 missing)
+      MOB1                < 19.5        to the right, improve= 5.235472, (0 missing)
+      Num_A_PL            < 8.5         to the left,  improve= 5.138660, (0 missing)
+  Surrogate splits:
+      Num_A_HL < 10          to the left,  agree=1, adj=1, (0 split)
+
+Node number 49: 1042 observations,    complexity param=0.001790123
+  predicted class=N  expected loss=0.243762  P(node) =0.01372913
+    class counts:   788   254
+   probabilities: 0.756 0.244 
+  left son=98 (444 obs) right son=99 (598 obs)
+  Primary splits:
+      Num_HP              < 0.5         to the left,  improve=9.741972, (0 missing)
+      Num_A_PL            < 7.5         to the left,  improve=9.605438, (0 missing)
+      Num_A_HP            < 0.5         to the left,  improve=8.192644, (0 missing)
+      DATE_ACCOUNT_OPENED < 15928.5     to the left,  improve=8.093561, (0 missing)
+      MOB1                < 23.5        to the right, improve=7.822867, (0 missing)
+  Surrogate splits:
+      Num_A_HP            < 0.5         to the left,  agree=0.947, adj=0.876, (0 split)
+      nactiveloans        < 4.5         to the left,  agree=0.648, adj=0.173, (0 split)
+      nloans              < 5.5         to the left,  agree=0.647, adj=0.171, (0 split)
+      INSTALLMENT_AMOUNT  < 2857        to the left,  agree=0.602, adj=0.065, (0 split)
+      DATE_ACCOUNT_OPENED < 14577       to the left,  agree=0.598, adj=0.056, (0 split)
+
+Node number 52: 497 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.249497  P(node) =0.006548348
+    class counts:   373   124
+   probabilities: 0.751 0.249 
+  left son=104 (341 obs) right son=105 (156 obs)
+  Primary splits:
+      DATE_ACCOUNT_OPENED < 16028       to the left,  improve=6.107040, (0 missing)
+      Amount_owe3         < 151652.5    to the left,  improve=5.416501, (0 missing)
+      MOB1                < 27.5        to the right, improve=5.323888, (0 missing)
+      Amount_owe2         < 154057      to the left,  improve=5.276898, (0 missing)
+      Amount_owe4         < 149973      to the left,  improve=5.276898, (0 missing)
+  Surrogate splits:
+      MOB1        < 22.5        to the right, agree=0.988, adj=0.962, (0 split)
+      Amount_owe1 < 4019524     to the left,  agree=0.698, adj=0.038, (0 split)
+      Amount_owe2 < 4001327     to the left,  agree=0.698, adj=0.038, (0 split)
+      Amount_owe3 < 3987710     to the left,  agree=0.698, adj=0.038, (0 split)
+      Amount_owe4 < 3992964     to the left,  agree=0.698, adj=0.038, (0 split)
+
+Node number 53: 226 observations,    complexity param=0.004444444
+  predicted class=N  expected loss=0.4734513  P(node) =0.00297772
+    class counts:   119   107
+   probabilities: 0.527 0.473 
+  left son=106 (154 obs) right son=107 (72 obs)
+  Primary splits:
+      DATE_ACCOUNT_OPENED < 15979.5     to the left,  improve=7.889208, (0 missing)
+      MOB1                < 23.5        to the right, improve=7.307972, (0 missing)
+      Utilization2        < 0.985       to the left,  improve=6.746044, (0 missing)
+      Momentum1           < -0.5        to the right, improve=5.679741, (0 missing)
+      DEFAULT_DATE        < 16614.5     to the right, improve=5.278384, (0 missing)
+  Surrogate splits:
+      MOB1            < 23.5        to the right, agree=0.996, adj=0.986, (0 split)
+      Momentum1       < -0.5        to the right, agree=0.712, adj=0.097, (0 split)
+      Number_of_1plus < 2.5         to the right, agree=0.708, adj=0.083, (0 split)
+      Num_A_PL        < 4.5         to the left,  agree=0.708, adj=0.083, (0 split)
+      Momentum2       < 1.5         to the left,  agree=0.704, adj=0.069, (0 split)
+
+Node number 54: 25 observations,    complexity param=0.001666667
+  predicted class=Y  expected loss=0.48  P(node) =0.0003293938
+    class counts:    12    13
+   probabilities: 0.480 0.520 
+  left son=108 (13 obs) right son=109 (12 obs)
+  Primary splits:
+      Utilization_Momentum5      < 0.005       to the right, improve=7.262051, (0 missing)
+      DATE_ACCOUNT_OPENED        < 16071.5     to the left,  improve=6.480000, (0 missing)
+      MOB1                       < 20.5        to the right, improve=6.480000, (0 missing)
+      INSTALLMENT_NUMBER_PAYMENT < 197         to the left,  improve=6.480000, (0 missing)
+      nactiveloans               < 14.5        to the left,  improve=5.257778, (0 missing)
+  Surrogate splits:
+      Number_of_1plus      < 2.5         to the right, agree=0.88, adj=0.750, (0 split)
+      DATE_ACCOUNT_OPENED  < 16141.5     to the left,  agree=0.84, adj=0.667, (0 split)
+      MOB1                 < 18.5        to the right, agree=0.84, adj=0.667, (0 split)
+      AMOUNT_PAST_DUE      < 22174.5     to the right, agree=0.84, adj=0.667, (0 split)
+      Amount_Owe_Momentum5 < 1070.5      to the right, agree=0.84, adj=0.667, (0 split)
+
+Node number 55: 46 observations
+  predicted class=Y  expected loss=0.1086957  P(node) =0.0006060846
+    class counts:     5    41
+   probabilities: 0.109 0.891 
+
+Node number 60: 239 observations,    complexity param=0.005185185
+  predicted class=N  expected loss=0.3012552  P(node) =0.003149005
+    class counts:   167    72
+   probabilities: 0.699 0.301 
+  left son=120 (217 obs) right son=121 (22 obs)
+  Primary splits:
+      nactiveloans      < 2.5         to the right, improve=12.949370, (0 missing)
+      DATE_LAST_PAYMENT < 16480       to the right, improve= 9.022850, (0 missing)
+      Num_HP            < 3           to the left,  improve= 8.082450, (0 missing)
+      Num_A_PL          < 0.5         to the right, improve= 7.319247, (0 missing)
+      Num_PL            < 9.5         to the left,  improve= 7.041661, (0 missing)
+  Surrogate splits:
+      DATE_LAST_PAYMENT    < 15854.5     to the right, agree=0.950, adj=0.455, (0 split)
+      Num_A_PL             < 0.5         to the right, agree=0.946, adj=0.409, (0 split)
+      nloans               < 2.5         to the right, agree=0.925, adj=0.182, (0 split)
+      Amount_Owe_Momentum5 < 44595       to the left,  agree=0.921, adj=0.136, (0 split)
+      Amount_Owe_Momentum4 < -64001      to the right, agree=0.916, adj=0.091, (0 split)
+
+Node number 61: 28 observations
+  predicted class=Y  expected loss=0.1071429  P(node) =0.000368921
+    class counts:     3    25
+   probabilities: 0.107 0.893 
+
+Node number 62: 42 observations,    complexity param=0.001111111
+  predicted class=N  expected loss=0.2380952  P(node) =0.0005533816
+    class counts:    32    10
+   probabilities: 0.762 0.238 
+  left son=124 (33 obs) right son=125 (9 obs)
+  Primary splits:
+      Momentum5             < 0.5         to the left,  improve=4.207792, (0 missing)
+      Amount_Owe_Momentum5  < -173        to the left,  improve=3.545788, (0 missing)
+      Utilization_Momentum5 < 0.005       to the left,  improve=3.438095, (0 missing)
+      DATE_LAST_PAYMENT     < 16616.5     to the right, improve=2.055403, (0 missing)
+      Amount_Owe_Momentum1  < -214        to the left,  improve=1.904762, (0 missing)
+  Surrogate splits:
+      Min_Momentum         < 0.5         to the left,  agree=0.881, adj=0.444, (0 split)
+      Amount_Owe_Momentum5 < 3913        to the left,  agree=0.857, adj=0.333, (0 split)
+      INSTALLMENT_AMOUNT   < 59100       to the left,  agree=0.833, adj=0.222, (0 split)
+      Amount_Owe_Momentum3 < 29499       to the left,  agree=0.833, adj=0.222, (0 split)
+      Amount_Owe_Momentum4 < 25777.5     to the left,  agree=0.833, adj=0.222, (0 split)
+
+Node number 63: 299 observations,    complexity param=0.006018519
+  predicted class=Y  expected loss=0.3545151  P(node) =0.00393955
+    class counts:   106   193
+   probabilities: 0.355 0.645 
+  left son=126 (91 obs) right son=127 (208 obs)
+  Primary splits:
+      Num_A_HP     < 1.5         to the right, improve=12.309840, (0 missing)
+      Num_HP       < 1.5         to the right, improve=10.338690, (0 missing)
+      Num_A_CL     < 5.5         to the right, improve=10.210710, (0 missing)
+      Num_CC       < 9.5         to the right, improve= 8.710563, (0 missing)
+      nactiveloans < 14.5        to the right, improve= 8.316018, (0 missing)
+  Surrogate splits:
+      Num_HP       < 1.5         to the right, agree=0.970, adj=0.901, (0 split)
+      ACCOUNT_TYPE splits as  RRR---RRL-R, agree=0.746, adj=0.165, (0 split)
+      Num_HL       < 3.5         to the right, agree=0.742, adj=0.154, (0 split)
+      Num_A_HL     < 3.5         to the right, agree=0.729, adj=0.110, (0 split)
+      Num_A_CL     < 6.5         to the right, agree=0.726, adj=0.099, (0 split)
+
+Node number 66: 56 observations
+  predicted class=N  expected loss=0  P(node) =0.0007378421
+    class counts:    56     0
+   probabilities: 1.000 0.000 
+
+Node number 67: 13 observations
+  predicted class=Y  expected loss=0  P(node) =0.0001712848
+    class counts:     0    13
+   probabilities: 0.000 1.000 
+
+Node number 74: 13 observations
+  predicted class=N  expected loss=0  P(node) =0.0001712848
+    class counts:    13     0
+   probabilities: 1.000 0.000 
+
+Node number 75: 13 observations
+  predicted class=Y  expected loss=0  P(node) =0.0001712848
+    class counts:     0    13
+   probabilities: 0.000 1.000 
+
+Node number 76: 94 observations
+  predicted class=N  expected loss=0.05319149  P(node) =0.001238521
+    class counts:    89     5
+   probabilities: 0.947 0.053 
+
+Node number 77: 10 observations
+  predicted class=Y  expected loss=0  P(node) =0.0001317575
+    class counts:     0    10
+   probabilities: 0.000 1.000 
+
+Node number 78: 7 observations
+  predicted class=N  expected loss=0.2857143  P(node) =9.223026e-05
+    class counts:     5     2
+   probabilities: 0.714 0.286 
+
+Node number 79: 17 observations
+  predicted class=Y  expected loss=0.05882353  P(node) =0.0002239878
+    class counts:     1    16
+   probabilities: 0.059 0.941 
+
+Node number 80: 1011 observations
+  predicted class=N  expected loss=0.008902077  P(node) =0.01332068
+    class counts:  1002     9
+   probabilities: 0.991 0.009 
+
+Node number 81: 1280 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.1382812  P(node) =0.01686496
+    class counts:  1103   177
+   probabilities: 0.862 0.138 
+  left son=162 (897 obs) right son=163 (383 obs)
+  Primary splits:
+      nactiveloans < 14.5        to the right, improve=15.11515, (0 missing)
+      nloans       < 19.5        to the right, improve=11.34255, (0 missing)
+      Num_HP       < 2.5         to the right, improve=11.06568, (0 missing)
+      Num_A_HP     < 2.5         to the right, improve=11.06568, (0 missing)
+      Num_OD       < 0.5         to the right, improve=10.17448, (0 missing)
+  Surrogate splits:
+      nloans   < 14.5        to the right, agree=0.970, adj=0.898, (0 split)
+      Num_A_CC < 4.5         to the right, agree=0.870, adj=0.567, (0 split)
+      Num_CC   < 4.5         to the right, agree=0.870, adj=0.564, (0 split)
+      Num_A_PL < 2.5         to the right, agree=0.743, adj=0.141, (0 split)
+      Num_PL   < 2.5         to the right, agree=0.739, adj=0.128, (0 split)
+
+Node number 82: 64 observations
+  predicted class=N  expected loss=0  P(node) =0.0008432481
+    class counts:    64     0
+   probabilities: 1.000 0.000 
+
+Node number 83: 41 observations
+  predicted class=Y  expected loss=0  P(node) =0.0005402058
+    class counts:     0    41
+   probabilities: 0.000 1.000 
+
+Node number 96: 2060 observations,    complexity param=0.001296296
+  predicted class=N  expected loss=0.1305825  P(node) =0.02714205
+    class counts:  1791   269
+   probabilities: 0.869 0.131 
+  left son=192 (1376 obs) right son=193 (684 obs)
+  Primary splits:
+      Num_A_HL            < 0.5         to the right, improve=7.605197, (0 missing)
+      nactiveloans        < 4.5         to the right, improve=5.256636, (0 missing)
+      Num_A_PL            < 8.5         to the left,  improve=5.195651, (0 missing)
+      DATE_ACCOUNT_OPENED < 16088       to the left,  improve=4.186969, (0 missing)
+      MOB1                < 19.5        to the right, improve=3.803267, (0 missing)
+  Surrogate splits:
+      Num_HL            < 0.5         to the right, agree=0.932, adj=0.794, (0 split)
+      nactiveloans      < 1.5         to the right, agree=0.754, adj=0.260, (0 split)
+      nloans            < 2.5         to the right, agree=0.730, adj=0.186, (0 split)
+      min_util_momentum < -0.185      to the right, agree=0.698, adj=0.089, (0 split)
+      Amount_owe1       < 1633        to the right, agree=0.695, adj=0.082, (0 split)
+
+Node number 97: 7 observations
+  predicted class=Y  expected loss=0  P(node) =9.223026e-05
+    class counts:     0     7
+   probabilities: 0.000 1.000 
+
+Node number 98: 444 observations
+  predicted class=N  expected loss=0.1644144  P(node) =0.005850034
+    class counts:   371    73
+   probabilities: 0.836 0.164 
+
+Node number 99: 598 observations,    complexity param=0.001790123
+  predicted class=N  expected loss=0.3026756  P(node) =0.007879099
+    class counts:   417   181
+   probabilities: 0.697 0.303 
+  left son=198 (381 obs) right son=199 (217 obs)
+  Primary splits:
+      DATE_ACCOUNT_OPENED        < 15973.5     to the left,  improve=12.435310, (0 missing)
+      MOB1                       < 23.5        to the right, improve=11.871280, (0 missing)
+      INSTALLMENT_NUMBER_PAYMENT < 105.5       to the left,  improve= 7.767934, (0 missing)
+      Num_A_PL                   < 7.5         to the left,  improve= 5.707139, (0 missing)
+      stdUtil1to6                < 0.0163808   to the right, improve= 5.689374, (0 missing)
+  Surrogate splits:
+      MOB1        < 23.5        to the right, agree=0.993, adj=0.982, (0 split)
+      REPORT_DATE < 16703       to the right, agree=0.671, adj=0.092, (0 split)
+      Amount_owe2 < 485567.5    to the left,  agree=0.657, adj=0.055, (0 split)
+      Amount_owe3 < 486393      to the left,  agree=0.657, adj=0.055, (0 split)
+      Amount_owe4 < 489405.5    to the left,  agree=0.657, adj=0.055, (0 split)
+
+Node number 104: 341 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.1964809  P(node) =0.004492931
+    class counts:   274    67
+   probabilities: 0.804 0.196 
+  left son=208 (334 obs) right son=209 (7 obs)
+  Primary splits:
+      Utilization_Momentum1 < -0.215      to the right, improve=6.238706, (0 missing)
+      Num_A_OTH_HP          < 0.5         to the left,  improve=5.491816, (0 missing)
+      Amount_Owe_Momentum1  < -36890.5    to the right, improve=5.019903, (0 missing)
+      stdUtil123            < 0.1233443   to the left,  improve=3.540377, (0 missing)
+      Num_OTH_HP            < 0.5         to the left,  improve=3.501614, (0 missing)
+  Surrogate splits:
+      Amount_Owe_Momentum1 < -88966.5    to the right, agree=0.997, adj=0.857, (0 split)
+      ACCOUNT_STATUS       splits as  LR-LLLL-, agree=0.988, adj=0.429, (0 split)
+      Amount_owe1          < 291         to the right, agree=0.988, adj=0.429, (0 split)
+      ACCOUNT_STATUS_CODE  splits as  LRL, agree=0.988, adj=0.429, (0 split)
+      DATE_ACCOUNT_CLOSED  < -4442.5     to the left,  agree=0.985, adj=0.286, (0 split)
+
+Node number 105: 156 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.3653846  P(node) =0.002055417
+    class counts:    99    57
+   probabilities: 0.635 0.365 
+  left son=210 (69 obs) right son=211 (87 obs)
+  Primary splits:
+      Utilization3         < 0.965       to the left,  improve=7.750452, (0 missing)
+      Amount_Owe_Momentum5 < -954        to the left,  improve=7.382607, (0 missing)
+      Utilization6         < 0.975       to the left,  improve=6.472470, (0 missing)
+      Utilization5         < 0.975       to the left,  improve=6.055179, (0 missing)
+      AVG_Utilization_6MTH < 0.965       to the left,  improve=5.374437, (0 missing)
+  Surrogate splits:
+      Utilization2         < 0.975       to the left,  agree=0.955, adj=0.899, (0 split)
+      AVG_Utilization_3MTH < 0.975       to the left,  agree=0.955, adj=0.899, (0 split)
+      AVG_Utilization_6MTH < 0.965       to the left,  agree=0.942, adj=0.870, (0 split)
+      Utilization4         < 0.965       to the left,  agree=0.936, adj=0.855, (0 split)
+      Utilization1         < 0.975       to the left,  agree=0.929, adj=0.841, (0 split)
+
+Node number 106: 154 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.3831169  P(node) =0.002029066
+    class counts:    95    59
+   probabilities: 0.617 0.383 
+  left son=212 (63 obs) right son=213 (91 obs)
+  Primary splits:
+      Amount_Owe_Momentum2 < 10538       to the left,  improve=4.484515, (0 missing)
+      Amount_Owe_Momentum1 < 9709.5      to the left,  improve=4.315464, (0 missing)
+      nloans               < 7.5         to the right, improve=4.067855, (0 missing)
+      DEFAULT_DATE         < 16614.5     to the right, improve=3.819745, (0 missing)
+      stdUtil123           < 0.005773503 to the left,  improve=3.452679, (0 missing)
+  Surrogate splits:
+      Amount_Owe_Momentum3 < 10584       to the left,  agree=0.890, adj=0.730, (0 split)
+      Amount_Owe_Momentum5 < 10609       to the left,  agree=0.857, adj=0.651, (0 split)
+      Amount_Owe_Momentum1 < 10173.5     to the left,  agree=0.851, adj=0.635, (0 split)
+      Amount_owe2          < 1992193     to the left,  agree=0.825, adj=0.571, (0 split)
+      Amount_owe3          < 1975236     to the left,  agree=0.825, adj=0.571, (0 split)
+
+Node number 107: 72 observations,    complexity param=0.001851852
+  predicted class=Y  expected loss=0.3333333  P(node) =0.0009486541
+    class counts:    24    48
+   probabilities: 0.333 0.667 
+  left son=214 (28 obs) right son=215 (44 obs)
+  Primary splits:
+      stdUtil1to6 < 0.008655436 to the left,  improve=5.194805, (0 missing)
+      Amount_owe1 < 849989.5    to the right, improve=2.885246, (0 missing)
+      Amount_owe2 < 858978      to the right, improve=2.885246, (0 missing)
+      Amount_owe3 < 851083      to the right, improve=2.885246, (0 missing)
+      Amount_owe4 < 839388.5    to the right, improve=2.885246, (0 missing)
+  Surrogate splits:
+      max_util_momentum     < 0.005       to the left,  agree=0.792, adj=0.464, (0 split)
+      Utilization1          < 0.995       to the left,  agree=0.778, adj=0.429, (0 split)
+      Utilization2          < 0.985       to the left,  agree=0.778, adj=0.429, (0 split)
+      AVG_Utilization_3MTH  < 0.985       to the left,  agree=0.764, adj=0.393, (0 split)
+      Utilization_Momentum1 < 0.005       to the left,  agree=0.764, adj=0.393, (0 split)
+
+Node number 108: 13 observations
+  predicted class=N  expected loss=0.1538462  P(node) =0.0001712848
+    class counts:    11     2
+   probabilities: 0.846 0.154 
+
+Node number 109: 12 observations
+  predicted class=Y  expected loss=0.08333333  P(node) =0.000158109
+    class counts:     1    11
+   probabilities: 0.083 0.917 
+
+Node number 120: 217 observations,    complexity param=0.00308642
+  predicted class=N  expected loss=0.2488479  P(node) =0.002859138
+    class counts:   163    54
+   probabilities: 0.751 0.249 
+  left son=240 (209 obs) right son=241 (8 obs)
+  Primary splits:
+      Num_HP       < 3           to the left,  improve=9.373228, (0 missing)
+      Num_PL       < 9.5         to the left,  improve=8.162519, (0 missing)
+      Num_A_PL     < 8.5         to the left,  improve=8.162519, (0 missing)
+      DEFAULT_DATE < 16664.5     to the left,  improve=6.368868, (0 missing)
+      Num_CC       < 4.5         to the left,  improve=4.982320, (0 missing)
+
+Node number 121: 22 observations
+  predicted class=Y  expected loss=0.1818182  P(node) =0.0002898665
+    class counts:     4    18
+   probabilities: 0.182 0.818 
+
+Node number 124: 33 observations
+  predicted class=N  expected loss=0.1212121  P(node) =0.0004347998
+    class counts:    29     4
+   probabilities: 0.879 0.121 
+
+Node number 125: 9 observations
+  predicted class=Y  expected loss=0.3333333  P(node) =0.0001185818
+    class counts:     3     6
+   probabilities: 0.333 0.667 
+
+Node number 126: 91 observations,    complexity param=0.006018519
+  predicted class=N  expected loss=0.4285714  P(node) =0.001198993
+    class counts:    52    39
+   probabilities: 0.571 0.429 
+  left son=252 (62 obs) right son=253 (29 obs)
+  Primary splits:
+      Momentum4       < 0.5         to the left,  improve=18.64373, (0 missing)
+      Num_PL          < 5           to the right, improve=14.85714, (0 missing)
+      Num_A_PL        < 5           to the right, improve=14.85714, (0 missing)
+      nloans          < 19          to the right, improve=12.00577, (0 missing)
+      Ever60plus_4MTH splits as  LR, improve=11.45453, (0 missing)
+  Surrogate splits:
+      Ever60plus_4MTH splits as  LR, agree=0.824, adj=0.448, (0 split)
+      Ever60plus_3MTH splits as  LR, agree=0.824, adj=0.448, (0 split)
+      Number_of_3plus < 1.5         to the left,  agree=0.813, adj=0.414, (0 split)
+      Num_PL          < 1.5         to the right, agree=0.813, adj=0.414, (0 split)
+      Num_A_PL        < 1.5         to the right, agree=0.813, adj=0.414, (0 split)
+
+Node number 127: 208 observations,    complexity param=0.003703704
+  predicted class=Y  expected loss=0.2596154  P(node) =0.002740556
+    class counts:    54   154
+   probabilities: 0.260 0.740 
+  left son=254 (10 obs) right son=255 (198 obs)
+  Primary splits:
+      Amount_owe1          < 16052       to the left,  improve=11.51709, (0 missing)
+      Utilization5         < 0.45        to the left,  improve=10.99555, (0 missing)
+      Utilization1         < 0.405       to the left,  improve=10.71853, (0 missing)
+      AVG_Utilization_3MTH < 0.445       to the left,  improve=10.71853, (0 missing)
+      Amount_Owe_Momentum1 < 93.5        to the left,  improve=10.68376, (0 missing)
+  Surrogate splits:
+      Amount_owe4  < 14920       to the left,  agree=0.995, adj=0.9, (0 split)
+      Amount_owe5  < 14726.5     to the left,  agree=0.995, adj=0.9, (0 split)
+      Utilization1 < 0.195       to the left,  agree=0.995, adj=0.9, (0 split)
+      Amount_owe2  < 12480.5     to the left,  agree=0.990, adj=0.8, (0 split)
+      Amount_owe3  < 12501.5     to the left,  agree=0.990, adj=0.8, (0 split)
+
+Node number 162: 897 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.08807135  P(node) =0.01181865
+    class counts:   818    79
+   probabilities: 0.912 0.088 
+  left son=324 (597 obs) right son=325 (300 obs)
+  Primary splits:
+      Num_HP       < 0.5         to the right, improve=9.366167, (0 missing)
+      Num_A_HP     < 0.5         to the right, improve=8.068620, (0 missing)
+      Loan_amount1 < 47900       to the right, improve=5.303557, (0 missing)
+      Num_HL       < 0.5         to the right, improve=5.202536, (0 missing)
+      Num_A_HL     < 0.5         to the right, improve=5.202536, (0 missing)
+  Surrogate splits:
+      Num_A_HP < 0.5         to the right, agree=0.978, adj=0.933, (0 split)
+      Num_OD   < 2.5         to the left,  agree=0.768, adj=0.307, (0 split)
+      Num_A_OD < 2.5         to the left,  agree=0.768, adj=0.307, (0 split)
+      Num_CC   < 14.5        to the left,  agree=0.749, adj=0.250, (0 split)
+      Num_A_CC < 14.5        to the left,  agree=0.749, adj=0.250, (0 split)
+
+Node number 163: 383 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.2558747  P(node) =0.005046313
+    class counts:   285    98
+   probabilities: 0.744 0.256 
+  left son=326 (368 obs) right son=327 (15 obs)
+  Primary splits:
+      Num_A_CL < 4.5         to the left,  improve=17.28878, (0 missing)
+      Num_A_PL < 2.5         to the left,  improve=16.38021, (0 missing)
+      Num_OD   < 0.5         to the right, improve=15.07447, (0 missing)
+      Num_PL   < 3.5         to the left,  improve=14.86357, (0 missing)
+      Num_A_OD < 0.5         to the right, improve=14.32607, (0 missing)
+  Surrogate splits:
+      Num_A_OD     < 2.5         to the left,  agree=0.984, adj=0.600, (0 split)
+      Num_CL       < 4.5         to the left,  agree=0.982, adj=0.533, (0 split)
+      Loan_amount1 < 5316        to the right, agree=0.963, adj=0.067, (0 split)
+      Loan_amount2 < 5316        to the right, agree=0.963, adj=0.067, (0 split)
+      Loan_amount3 < 5316        to the right, agree=0.963, adj=0.067, (0 split)
+
+Node number 192: 1376 observations,    complexity param=0.001111111
+  predicted class=N  expected loss=0.1002907  P(node) =0.01812983
+    class counts:  1238   138
+   probabilities: 0.900 0.100 
+  left son=384 (1367 obs) right son=385 (9 obs)
+  Primary splits:
+      Num_A_PL            < 8.5         to the left,  improve=5.812086, (0 missing)
+      DATE_ACCOUNT_OPENED < 16088       to the left,  improve=4.172685, (0 missing)
+      Num_HP              < 0.5         to the left,  improve=3.858352, (0 missing)
+      Num_PL              < 8.5         to the left,  improve=3.629657, (0 missing)
+      MOB1                < 20.5        to the right, improve=3.550536, (0 missing)
+  Surrogate splits:
+      Utilization_Momentum3 < 5e+08       to the left,  agree=0.995, adj=0.222, (0 split)
+      stdUtil1to6           < 532060200   to the left,  agree=0.995, adj=0.222, (0 split)
+
+Node number 193: 684 observations,    complexity param=0.001296296
+  predicted class=N  expected loss=0.1915205  P(node) =0.009012214
+    class counts:   553   131
+   probabilities: 0.808 0.192 
+  left son=386 (58 obs) right son=387 (626 obs)
+  Primary splits:
+      Num_PL               < 5.5         to the right, improve=4.649113, (0 missing)
+      Num_A_OD             < 0.5         to the right, improve=4.599415, (0 missing)
+      Utilization1         < 0.785       to the left,  improve=4.223778, (0 missing)
+      Min_Momentum         < -0.5        to the left,  improve=3.985449, (0 missing)
+      AVG_Utilization_3MTH < 0.635       to the left,  improve=3.804971, (0 missing)
+  Surrogate splits:
+      Num_A_PL       < 4.5         to the right, agree=0.944, adj=0.345, (0 split)
+      Num_RD         < 1.5         to the right, agree=0.923, adj=0.086, (0 split)
+      Num_A_RD       < 1.5         to the right, agree=0.923, adj=0.086, (0 split)
+      ACCOUNT_STATUS splits as  RR-RRRRL, agree=0.920, adj=0.052, (0 split)
+      stdUtil456     < 288675100   to the right, agree=0.918, adj=0.034, (0 split)
+
+Node number 198: 381 observations,    complexity param=0.001790123
+  predicted class=N  expected loss=0.2257218  P(node) =0.005019961
+    class counts:   295    86
+   probabilities: 0.774 0.226 
+  left son=396 (367 obs) right son=397 (14 obs)
+  Primary splits:
+      Num_A_PL        < 7.5         to the left,  improve=6.938407, (0 missing)
+      AMOUNT_PAST_DUE < 174228.5    to the left,  improve=3.584455, (0 missing)
+      Num_PL          < 7.5         to the left,  improve=3.345262, (0 missing)
+      Loan_amount2    < 54500       to the left,  improve=2.906675, (0 missing)
+      Loan_amount3    < 54500       to the left,  improve=2.906675, (0 missing)
+
+Node number 199: 217 observations,    complexity param=0.001790123
+  predicted class=N  expected loss=0.437788  P(node) =0.002859138
+    class counts:   122    95
+   probabilities: 0.562 0.438 
+  left son=398 (47 obs) right son=399 (170 obs)
+  Primary splits:
+      Ever30plus_4MTH      splits as  LR, improve=8.590740, (0 missing)
+      Ever30plus_3MTH      splits as  LR, improve=8.590740, (0 missing)
+      Amount_Owe_Momentum3 < 647         to the left,  improve=7.763068, (0 missing)
+      Momentum3            < 0.5         to the left,  improve=7.370402, (0 missing)
+      Ever30plus_5MTH      splits as  LR, improve=7.232258, (0 missing)
+  Surrogate splits:
+      Ever30plus_5MTH splits as  LR, agree=0.986, adj=0.936, (0 split)
+      Ever30plus_6MTH splits as  LR, agree=0.982, adj=0.915, (0 split)
+      Number_of_2plus < 0.5         to the left,  agree=0.982, adj=0.915, (0 split)
+      Number_of_1plus < 1.5         to the left,  agree=0.876, adj=0.426, (0 split)
+      Momentum1       < 0.5         to the left,  agree=0.866, adj=0.383, (0 split)
+
+Node number 208: 334 observations,    complexity param=0.001111111
+  predicted class=N  expected loss=0.1826347  P(node) =0.004400701
+    class counts:   273    61
+   probabilities: 0.817 0.183 
+  left son=416 (317 obs) right son=417 (17 obs)
+  Primary splits:
+      Num_A_OTH_HP         < 0.5         to the left,  improve=5.893363, (0 missing)
+      Num_OTH_HP           < 0.5         to the left,  improve=3.862181, (0 missing)
+      Num_HL               < 4.5         to the left,  improve=3.425249, (0 missing)
+      Amount_Owe_Momentum2 < 5448.5      to the left,  improve=2.872209, (0 missing)
+      Loan_amount1         < 3407500     to the left,  improve=2.572580, (0 missing)
+  Surrogate splits:
+      Num_OTH_HP < 0.5         to the left,  agree=0.988, adj=0.765, (0 split)
+      Num_HL     < 5.5         to the left,  agree=0.952, adj=0.059, (0 split)
+
+Node number 209: 7 observations
+  predicted class=Y  expected loss=0.1428571  P(node) =9.223026e-05
+    class counts:     1     6
+   probabilities: 0.143 0.857 
+
+Node number 210: 69 observations
+  predicted class=N  expected loss=0.1884058  P(node) =0.0009091268
+    class counts:    56    13
+   probabilities: 0.812 0.188 
+
+Node number 211: 87 observations,    complexity param=0.001851852
+  predicted class=Y  expected loss=0.4942529  P(node) =0.00114629
+    class counts:    43    44
+   probabilities: 0.494 0.506 
+  left son=422 (26 obs) right son=423 (61 obs)
+  Primary splits:
+      Num_A_OD                   < 0.5         to the right, improve=5.607746, (0 missing)
+      Num_A_HL                   < 0.5         to the left,  improve=4.967586, (0 missing)
+      Amount_Owe_Momentum3       < 4334.5      to the right, improve=4.506911, (0 missing)
+      Amount_Owe_Momentum4       < -2312.5     to the right, improve=4.267362, (0 missing)
+      INSTALLMENT_NUMBER_PAYMENT < 234         to the left,  improve=4.242125, (0 missing)
+  Surrogate splits:
+      Num_OD               < 0.5         to the right, agree=0.931, adj=0.769, (0 split)
+      Num_PL               < 6.5         to the right, agree=0.736, adj=0.115, (0 split)
+      Num_A_PL             < 4.5         to the right, agree=0.736, adj=0.115, (0 split)
+      Amount_Owe_Momentum5 < -5368.5     to the left,  agree=0.724, adj=0.077, (0 split)
+      Momentum4            < -1.5        to the left,  agree=0.724, adj=0.077, (0 split)
+
+Node number 212: 63 observations
+  predicted class=N  expected loss=0.2380952  P(node) =0.0008300723
+    class counts:    48    15
+   probabilities: 0.762 0.238 
+
+Node number 213: 91 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.4835165  P(node) =0.001198993
+    class counts:    47    44
+   probabilities: 0.516 0.484 
+  left son=426 (73 obs) right son=427 (18 obs)
+  Primary splits:
+      Amount_Owe_Momentum3 < 12441.5     to the right, improve=3.885861, (0 missing)
+      DATE_LAST_PAYMENT    < 16309       to the right, improve=3.597918, (0 missing)
+      ACCOUNT_STATUS       splits as  R--RRLR-, improve=3.545788, (0 missing)
+      nloans               < 9.5         to the right, improve=2.578349, (0 missing)
+      stdUtil1to6          < 0.02316607  to the left,  improve=2.557094, (0 missing)
+  Surrogate splits:
+      Amount_Owe_Momentum2  < 12437.5     to the right, agree=0.901, adj=0.500, (0 split)
+      Amount_Owe_Momentum5  < -54203.5    to the right, agree=0.835, adj=0.167, (0 split)
+      Utilization_Momentum5 < -0.015      to the right, agree=0.835, adj=0.167, (0 split)
+      Momentum5             < -1          to the right, agree=0.835, adj=0.167, (0 split)
+      Utilization_Momentum2 < 0.03        to the left,  agree=0.824, adj=0.111, (0 split)
+
+Node number 214: 28 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.4285714  P(node) =0.000368921
+    class counts:    16    12
+   probabilities: 0.571 0.429 
+  left son=428 (14 obs) right son=429 (14 obs)
+  Primary splits:
+      nactiveloans < 5.5         to the left,  improve=4.571429, (0 missing)
+      stdUtil1to6  < 0.007846346 to the right, improve=4.114286, (0 missing)
+      Num_HP       < 0.5         to the left,  improve=3.358730, (0 missing)
+      Num_A_HP     < 0.5         to the left,  improve=2.880952, (0 missing)
+      nloans       < 5.5         to the left,  improve=2.673350, (0 missing)
+  Surrogate splits:
+      Num_A_CC          < 1.5         to the left,  agree=0.893, adj=0.786, (0 split)
+      Num_CC            < 1.5         to the left,  agree=0.857, adj=0.714, (0 split)
+      Num_A_HP          < 0.5         to the left,  agree=0.857, adj=0.714, (0 split)
+      nloans            < 6.5         to the left,  agree=0.857, adj=0.714, (0 split)
+      DATE_LAST_PAYMENT < 16615       to the left,  agree=0.786, adj=0.571, (0 split)
+
+Node number 215: 44 observations
+  predicted class=Y  expected loss=0.1818182  P(node) =0.0005797331
+    class counts:     8    36
+   probabilities: 0.182 0.818 
+
+Node number 240: 209 observations,    complexity param=0.00308642
+  predicted class=N  expected loss=0.2200957  P(node) =0.002753732
+    class counts:   163    46
+   probabilities: 0.780 0.220 
+  left son=480 (180 obs) right son=481 (29 obs)
+  Primary splits:
+      Num_PL            < 7.5         to the left,  improve=9.026675, (0 missing)
+      Num_A_PL          < 8.5         to the left,  improve=8.810602, (0 missing)
+      Num_CC            < 4.5         to the left,  improve=8.239198, (0 missing)
+      DEFAULT_DATE      < 16648.5     to the left,  improve=6.022866, (0 missing)
+      DATE_LAST_PAYMENT < 16671.5     to the right, improve=3.433162, (0 missing)
+  Surrogate splits:
+      nloans            < 25.5        to the left,  agree=0.914, adj=0.379, (0 split)
+      Num_A_PL          < 8.5         to the left,  agree=0.895, adj=0.241, (0 split)
+      nactiveloans      < 28.5        to the left,  agree=0.890, adj=0.207, (0 split)
+      DATE_LAST_PAYMENT < 16361       to the right, agree=0.871, adj=0.069, (0 split)
+      Num_A_CC          < 7.5         to the left,  agree=0.866, adj=0.034, (0 split)
+
+Node number 241: 8 observations
+  predicted class=Y  expected loss=0  P(node) =0.000105406
+    class counts:     0     8
+   probabilities: 0.000 1.000 
+
+Node number 252: 62 observations,    complexity param=0.001111111
+  predicted class=N  expected loss=0.2096774  P(node) =0.0008168966
+    class counts:    49    13
+   probabilities: 0.790 0.210 
+  left son=504 (27 obs) right son=505 (35 obs)
+  Primary splits:
+      Num_PL               < 5           to the right, improve=4.205530, (0 missing)
+      Num_A_PL             < 5           to the right, improve=4.205530, (0 missing)
+      DATE_ACCOUNT_OPENED  < 15691.5     to the right, improve=4.155054, (0 missing)
+      MOB1                 < 33          to the left,  improve=4.155054, (0 missing)
+      Amount_Owe_Momentum5 < -16783.5    to the right, improve=4.018517, (0 missing)
+  Surrogate splits:
+      Num_A_PL             < 5           to the right, agree=1.000, adj=1.000, (0 split)
+      nloans               < 22          to the right, agree=0.855, adj=0.667, (0 split)
+      nactiveloans         < 17.5        to the right, agree=0.855, adj=0.667, (0 split)
+      Num_CC               < 3.5         to the right, agree=0.774, adj=0.481, (0 split)
+      Amount_Owe_Momentum2 < 790         to the right, agree=0.758, adj=0.444, (0 split)
+
+Node number 253: 29 observations
+  predicted class=Y  expected loss=0.1034483  P(node) =0.0003820968
+    class counts:     3    26
+   probabilities: 0.103 0.897 
+
+Node number 254: 10 observations
+  predicted class=N  expected loss=0  P(node) =0.0001317575
+    class counts:    10     0
+   probabilities: 1.000 0.000 
+
+Node number 255: 198 observations,    complexity param=0.001296296
+  predicted class=Y  expected loss=0.2222222  P(node) =0.002608799
+    class counts:    44   154
+   probabilities: 0.222 0.778 
+  left son=510 (53 obs) right son=511 (145 obs)
+  Primary splits:
+      Amount_Owe_Momentum1  < 13.5        to the left,  improve=5.384457, (0 missing)
+      Utilization_Momentum1 < 0.005       to the left,  improve=5.358081, (0 missing)
+      DATE_ACCOUNT_OPENED   < 16295.5     to the left,  improve=4.658824, (0 missing)
+      MOB1                  < 14.5        to the right, improve=4.601307, (0 missing)
+      max_util_momentum     < 0.005       to the left,  improve=3.568400, (0 missing)
+  Surrogate splits:
+      Utilization_Momentum1 < -0.005      to the left,  agree=0.864, adj=0.491, (0 split)
+      DATE_LAST_PAYMENT     < 16678.5     to the right, agree=0.818, adj=0.321, (0 split)
+      Amount_Owe_Momentum3  < -8394.5     to the left,  agree=0.763, adj=0.113, (0 split)
+      stdUtil1to6           < 0.002041241 to the left,  agree=0.763, adj=0.113, (0 split)
+      ACCOUNT_TYPE          splits as  RRR---LRL-L, agree=0.758, adj=0.094, (0 split)
+
+Node number 324: 597 observations,    complexity param=0.001604938
+  predicted class=N  expected loss=0.03685092  P(node) =0.007865924
+    class counts:   575    22
+   probabilities: 0.963 0.037 
+  left son=648 (444 obs) right son=649 (153 obs)
+  Primary splits:
+      nloans       < 18.5        to the right, improve=3.625336, (0 missing)
+      nactiveloans < 18.5        to the right, improve=2.968945, (0 missing)
+      Num_A_PL     < 3.5         to the right, improve=2.661745, (0 missing)
+      Num_HL       < 0.5         to the right, improve=2.453642, (0 missing)
+      Num_A_HL     < 0.5         to the right, improve=2.453642, (0 missing)
+  Surrogate splits:
+      nactiveloans          < 18.5        to the right, agree=0.963, adj=0.856, (0 split)
+      Num_HL                < 0.5         to the right, agree=0.801, adj=0.222, (0 split)
+      Num_A_HL              < 0.5         to the right, agree=0.801, adj=0.222, (0 split)
+      Num_PL                < 3.5         to the right, agree=0.772, adj=0.111, (0 split)
+      Utilization_Momentum1 < 0.69        to the left,  agree=0.750, adj=0.026, (0 split)
+
+Node number 325: 300 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.19  P(node) =0.003952725
+    class counts:   243    57
+   probabilities: 0.810 0.190 
+  left son=650 (100 obs) right son=651 (200 obs)
+  Primary splits:
+      Num_CC       < 11.5        to the right, improve=10.830000, (0 missing)
+      Num_A_CC     < 11.5        to the right, improve=10.830000, (0 missing)
+      Loan_amount1 < 48900       to the right, improve= 7.513489, (0 missing)
+      Loan_amount2 < 48900       to the right, improve= 7.513489, (0 missing)
+      Loan_amount3 < 48900       to the right, improve= 7.513489, (0 missing)
+  Surrogate splits:
+      Num_A_CC < 11.5        to the right, agree=1.000, adj=1.00, (0 split)
+      Num_PL   < 11.5        to the right, agree=0.857, adj=0.57, (0 split)
+      Num_HL   < 12.5        to the right, agree=0.857, adj=0.57, (0 split)
+      Num_A_PL < 11.5        to the right, agree=0.857, adj=0.57, (0 split)
+      Num_A_HL < 12.5        to the right, agree=0.857, adj=0.57, (0 split)
+
+Node number 326: 368 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.2255435  P(node) =0.004848676
+    class counts:   285    83
+   probabilities: 0.774 0.226 
+  left son=652 (210 obs) right son=653 (158 obs)
+  Primary splits:
+      Num_A_PL            < 2.5         to the left,  improve=23.23429, (0 missing)
+      Num_PL              < 2.5         to the left,  improve=20.99197, (0 missing)
+      Num_OD              < 0.5         to the right, improve=20.10297, (0 missing)
+      Num_A_OD            < 0.5         to the right, improve=19.29903, (0 missing)
+      DATE_ACCOUNT_OPENED < 16088.5     to the left,  improve=14.91119, (0 missing)
+  Surrogate splits:
+      Num_PL       < 2.5         to the left,  agree=0.899, adj=0.766, (0 split)
+      Num_OD       < 0.5         to the right, agree=0.707, adj=0.316, (0 split)
+      Num_A_OD     < 0.5         to the right, agree=0.701, adj=0.304, (0 split)
+      nloans       < 13.5        to the left,  agree=0.685, adj=0.266, (0 split)
+      nactiveloans < 12.5        to the left,  agree=0.677, adj=0.247, (0 split)
+
+Node number 327: 15 observations
+  predicted class=Y  expected loss=0  P(node) =0.0001976363
+    class counts:     0    15
+   probabilities: 0.000 1.000 
+
+Node number 384: 1367 observations
+  predicted class=N  expected loss=0.09656181  P(node) =0.01801125
+    class counts:  1235   132
+   probabilities: 0.903 0.097 
+
+Node number 385: 9 observations
+  predicted class=Y  expected loss=0.3333333  P(node) =0.0001185818
+    class counts:     3     6
+   probabilities: 0.333 0.667 
+
+Node number 386: 58 observations
+  predicted class=N  expected loss=0  P(node) =0.0007641936
+    class counts:    58     0
+   probabilities: 1.000 0.000 
+
+Node number 387: 626 observations,    complexity param=0.001296296
+  predicted class=N  expected loss=0.2092652  P(node) =0.00824802
+    class counts:   495   131
+   probabilities: 0.791 0.209 
+  left son=774 (591 obs) right son=775 (35 obs)
+  Primary splits:
+      nloans               < 12.5        to the left,  improve=8.251180, (0 missing)
+      Utilization1         < 0.505       to the left,  improve=5.633611, (0 missing)
+      AVG_Utilization_3MTH < 0.525       to the left,  improve=5.348944, (0 missing)
+      AVG_Utilization_6MTH < 0.725       to the left,  improve=5.159604, (0 missing)
+      Min_Momentum         < -0.5        to the left,  improve=5.125072, (0 missing)
+  Surrogate splits:
+      nactiveloans < 12.5        to the left,  agree=0.982, adj=0.686, (0 split)
+      Num_CC       < 7.5         to the left,  agree=0.968, adj=0.429, (0 split)
+      Num_A_CC     < 7.5         to the left,  agree=0.968, adj=0.429, (0 split)
+      Loan_amount1 < 3300445     to the left,  agree=0.947, adj=0.057, (0 split)
+      Loan_amount2 < 3300445     to the left,  agree=0.947, adj=0.057, (0 split)
+
+Node number 396: 367 observations,    complexity param=0.001296296
+  predicted class=N  expected loss=0.2070845  P(node) =0.004835501
+    class counts:   291    76
+   probabilities: 0.793 0.207 
+  left son=792 (145 obs) right son=793 (222 obs)
+  Primary splits:
+      Loan_amount2 < 54500       to the left,  improve=4.486628, (0 missing)
+      Loan_amount3 < 54500       to the left,  improve=4.486628, (0 missing)
+      Loan_amount4 < 54500       to the left,  improve=4.365712, (0 missing)
+      Amount_owe1  < 58216       to the left,  improve=4.335943, (0 missing)
+      Loan_amount1 < 54500       to the left,  improve=4.100588, (0 missing)
+  Surrogate splits:
+      Loan_amount3 < 54500       to the left,  agree=1.000, adj=1.000, (0 split)
+      Loan_amount4 < 54500       to the left,  agree=0.997, adj=0.993, (0 split)
+      Loan_amount1 < 54500       to the left,  agree=0.995, adj=0.986, (0 split)
+      Loan_amount5 < 54500       to the left,  agree=0.995, adj=0.986, (0 split)
+      Loan_amount6 < 54500       to the left,  agree=0.995, adj=0.986, (0 split)
+
+Node number 397: 14 observations
+  predicted class=Y  expected loss=0.2857143  P(node) =0.0001844605
+    class counts:     4    10
+   probabilities: 0.286 0.714 
+
+Node number 398: 47 observations
+  predicted class=N  expected loss=0.1702128  P(node) =0.0006192603
+    class counts:    39     8
+   probabilities: 0.830 0.170 
+
+Node number 399: 170 observations,    complexity param=0.001790123
+  predicted class=Y  expected loss=0.4882353  P(node) =0.002239878
+    class counts:    83    87
+   probabilities: 0.488 0.512 
+  left son=798 (130 obs) right son=799 (40 obs)
+  Primary splits:
+      Amount_Owe_Momentum3       < 647         to the left,  improve=7.249095, (0 missing)
+      stdUtil456                 < 0.01527525  to the right, improve=6.176793, (0 missing)
+      Utilization_Momentum3      < -0.005      to the left,  improve=4.593786, (0 missing)
+      INSTALLMENT_NUMBER_PAYMENT < 102         to the left,  improve=4.575709, (0 missing)
+      Utilization_Momentum1      < 0.015       to the right, improve=4.247059, (0 missing)
+  Surrogate splits:
+      Amount_Owe_Momentum1  < 716.5       to the left,  agree=0.900, adj=0.575, (0 split)
+      Amount_Owe_Momentum2  < 647         to the left,  agree=0.900, adj=0.575, (0 split)
+      Amount_Owe_Momentum4  < 626         to the left,  agree=0.853, adj=0.375, (0 split)
+      Amount_Owe_Momentum5  < 791         to the left,  agree=0.835, adj=0.300, (0 split)
+      Utilization_Momentum3 < 0.015       to the left,  agree=0.800, adj=0.150, (0 split)
+
+Node number 416: 317 observations
+  predicted class=N  expected loss=0.1608833  P(node) =0.004176713
+    class counts:   266    51
+   probabilities: 0.839 0.161 
+
+Node number 417: 17 observations
+  predicted class=Y  expected loss=0.4117647  P(node) =0.0002239878
+    class counts:     7    10
+   probabilities: 0.412 0.588 
+
+Node number 422: 26 observations
+  predicted class=N  expected loss=0.2307692  P(node) =0.0003425695
+    class counts:    20     6
+   probabilities: 0.769 0.231 
+
+Node number 423: 61 observations,    complexity param=0.001851852
+  predicted class=Y  expected loss=0.3770492  P(node) =0.0008037208
+    class counts:    23    38
+   probabilities: 0.377 0.623 
+  left son=846 (29 obs) right son=847 (32 obs)
+  Primary splits:
+      INSTALLMENT_NUMBER_PAYMENT < 179.5       to the left,  improve=4.836772, (0 missing)
+      Amount_Owe_Momentum3       < 4240.5      to the right, improve=3.645156, (0 missing)
+      nloans                     < 9.5         to the right, improve=2.567592, (0 missing)
+      Amount_owe1                < 122387      to the left,  improve=2.561398, (0 missing)
+      Amount_owe2                < 120043.5    to the left,  improve=2.561398, (0 missing)
+  Surrogate splits:
+      stdUtil1to6           < 0.01443087  to the right, agree=0.869, adj=0.724, (0 split)
+      max_util_momentum     < 0.015       to the right, agree=0.852, adj=0.690, (0 split)
+      Utilization_Momentum2 < 0.015       to the right, agree=0.836, adj=0.655, (0 split)
+      stdUtil123            < 0.0107735   to the right, agree=0.836, adj=0.655, (0 split)
+      Loan_amount1          < 236675.5    to the left,  agree=0.820, adj=0.621, (0 split)
+
+Node number 426: 73 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.4109589  P(node) =0.0009618298
+    class counts:    43    30
+   probabilities: 0.589 0.411 
+  left son=852 (59 obs) right son=853 (14 obs)
+  Primary splits:
+      DATE_LAST_PAYMENT    < 16309       to the right, improve=4.865468, (0 missing)
+      Amount_Owe_Momentum4 < 25212.5     to the left,  improve=3.134132, (0 missing)
+      nloans               < 9.5         to the right, improve=2.851557, (0 missing)
+      ACCOUNT_STATUS       splits as  R--RRL--, improve=2.615193, (0 missing)
+      Amount_Owe_Momentum1 < 21412       to the left,  improve=2.224626, (0 missing)
+  Surrogate splits:
+      AMOUNT_PAST_DUE      < 606058.5    to the left,  agree=0.877, adj=0.357, (0 split)
+      Utilization1         < 1.085       to the left,  agree=0.877, adj=0.357, (0 split)
+      Utilization2         < 1.085       to the left,  agree=0.877, adj=0.357, (0 split)
+      Utilization6         < 1.04        to the left,  agree=0.877, adj=0.357, (0 split)
+      AVG_Utilization_3MTH < 1.085       to the left,  agree=0.877, adj=0.357, (0 split)
+
+Node number 427: 18 observations
+  predicted class=Y  expected loss=0.2222222  P(node) =0.0002371635
+    class counts:     4    14
+   probabilities: 0.222 0.778 
+
+Node number 428: 14 observations
+  predicted class=N  expected loss=0.1428571  P(node) =0.0001844605
+    class counts:    12     2
+   probabilities: 0.857 0.143 
+
+Node number 429: 14 observations
+  predicted class=Y  expected loss=0.2857143  P(node) =0.0001844605
+    class counts:     4    10
+   probabilities: 0.286 0.714 
+
+Node number 480: 180 observations
+  predicted class=N  expected loss=0.1611111  P(node) =0.002371635
+    class counts:   151    29
+   probabilities: 0.839 0.161 
+
+Node number 481: 29 observations,    complexity param=0.00308642
+  predicted class=Y  expected loss=0.4137931  P(node) =0.0003820968
+    class counts:    12    17
+   probabilities: 0.414 0.586 
+  left son=962 (12 obs) right son=963 (17 obs)
+  Primary splits:
+      Num_CC              < 10          to the right, improve=14.068970, (0 missing)
+      Num_OD              < 1.5         to the right, improve=14.068970, (0 missing)
+      Num_A_CL            < 0.5         to the left,  improve=14.068970, (0 missing)
+      DATE_ACCOUNT_OPENED < 14465       to the left,  improve= 7.592775, (0 missing)
+      MOB1                < 73.5        to the right, improve= 7.592775, (0 missing)
+  Surrogate splits:
+      Num_OD              < 1.5         to the right, agree=1.000, adj=1.000, (0 split)
+      Num_A_CL            < 0.5         to the left,  agree=1.000, adj=1.000, (0 split)
+      DATE_ACCOUNT_OPENED < 14465       to the left,  agree=0.862, adj=0.667, (0 split)
+      MOB1                < 73.5        to the right, agree=0.862, adj=0.667, (0 split)
+      Num_A_CC            < 7           to the right, agree=0.793, adj=0.500, (0 split)
+
+Node number 504: 27 observations
+  predicted class=N  expected loss=0  P(node) =0.0003557453
+    class counts:    27     0
+   probabilities: 1.000 0.000 
+
+Node number 505: 35 observations,    complexity param=0.001111111
+  predicted class=N  expected loss=0.3714286  P(node) =0.0004611513
+    class counts:    22    13
+   probabilities: 0.629 0.371 
+  left son=1010 (23 obs) right son=1011 (12 obs)
+  Primary splits:
+      DATE_ACCOUNT_OPENED < 15893.5     to the right, improve=5.234161, (0 missing)
+      MOB1                < 26.5        to the left,  improve=5.234161, (0 missing)
+      Loan_amount1        < 1418072     to the left,  improve=3.022857, (0 missing)
+      Loan_amount2        < 1418072     to the left,  improve=3.022857, (0 missing)
+      Loan_amount3        < 1418072     to the left,  improve=3.022857, (0 missing)
+  Surrogate splits:
+      MOB1         < 26.5        to the left,  agree=1.000, adj=1.0, (0 split)
+      Utilization2 < 0.645       to the right, agree=0.829, adj=0.5, (0 split)
+      Utilization3 < 0.65        to the right, agree=0.829, adj=0.5, (0 split)
+      Utilization4 < 0.575       to the right, agree=0.829, adj=0.5, (0 split)
+      Utilization5 < 0.59        to the right, agree=0.829, adj=0.5, (0 split)
+
+Node number 510: 53 observations,    complexity param=0.001296296
+  predicted class=Y  expected loss=0.4150943  P(node) =0.0006983148
+    class counts:    22    31
+   probabilities: 0.415 0.585 
+  left son=1020 (44 obs) right son=1021 (9 obs)
+  Primary splits:
+      AMOUNT_PAST_DUE       < 73620.5     to the left,  improve=3.735849, (0 missing)
+      nactiveloans          < 14.5        to the right, improve=3.544940, (0 missing)
+      Utilization_Momentum5 < -0.025      to the left,  improve=3.151998, (0 missing)
+      DATE_ACCOUNT_OPENED   < 16299.5     to the left,  improve=2.917667, (0 missing)
+      Min_Momentum          < -1.5        to the left,  improve=2.705546, (0 missing)
+  Surrogate splits:
+      Number_of_3plus    < 3.5         to the left,  agree=0.925, adj=0.556, (0 split)
+      nactiveloans       < 3.5         to the right, agree=0.925, adj=0.556, (0 split)
+      Number_of_2plus    < 5.5         to the left,  agree=0.906, adj=0.444, (0 split)
+      INSTALLMENT_AMOUNT < 42550       to the left,  agree=0.887, adj=0.333, (0 split)
+      ACCOUNT_STATUS     splits as  L--LR-L-, agree=0.887, adj=0.333, (0 split)
+
+Node number 511: 145 observations
+  predicted class=Y  expected loss=0.1517241  P(node) =0.001910484
+    class counts:    22   123
+   probabilities: 0.152 0.848 
+
+Node number 648: 444 observations
+  predicted class=N  expected loss=0.004504505  P(node) =0.005850034
+    class counts:   442     2
+   probabilities: 0.995 0.005 
+
+Node number 649: 153 observations,    complexity param=0.001604938
+  predicted class=N  expected loss=0.130719  P(node) =0.00201589
+    class counts:   133    20
+   probabilities: 0.869 0.131 
+  left son=1298 (90 obs) right son=1299 (63 obs)
+  Primary splits:
+      Num_OD                < 1.5         to the left,  improve=7.469655, (0 missing)
+      Num_A_OD              < 1.5         to the left,  improve=7.469655, (0 missing)
+      Loan_amount1          < 34500       to the right, improve=4.723989, (0 missing)
+      Utilization_Momentum1 < 0.395       to the left,  improve=2.849520, (0 missing)
+      Loan_amount2          < 34500       to the right, improve=2.485710, (0 missing)
+  Surrogate splits:
+      Num_A_OD < 1.5         to the left,  agree=1.000, adj=1.000, (0 split)
+      Num_PL   < 2.5         to the right, agree=0.647, adj=0.143, (0 split)
+      Num_HP   < 1.5         to the left,  agree=0.647, adj=0.143, (0 split)
+      Num_A_PL < 2.5         to the right, agree=0.647, adj=0.143, (0 split)
+      Num_A_HP < 1.5         to the left,  agree=0.647, adj=0.143, (0 split)
+
+Node number 650: 100 observations
+  predicted class=N  expected loss=0  P(node) =0.001317575
+    class counts:   100     0
+   probabilities: 1.000 0.000 
+
+Node number 651: 200 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.285  P(node) =0.00263515
+    class counts:   143    57
+   probabilities: 0.715 0.285 
+  left son=1302 (183 obs) right son=1303 (17 obs)
+  Primary splits:
+      nactiveloans < 24.5        to the left,  improve=18.99634, (0 missing)
+      Num_CC       < 8.5         to the left,  improve=12.65351, (0 missing)
+      Num_A_CC     < 8.5         to the left,  improve=12.65351, (0 missing)
+      Num_OD       < 0.5         to the right, improve=11.90153, (0 missing)
+      Num_A_OD     < 0.5         to the right, improve=11.90153, (0 missing)
+  Surrogate splits:
+      DEFAULT_DATE    < 16704.5     to the left,  agree=0.935, adj=0.235, (0 split)
+      AMOUNT_PAST_DUE < 638.5       to the left,  agree=0.930, adj=0.176, (0 split)
+
+Node number 652: 210 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.07142857  P(node) =0.002766908
+    class counts:   195    15
+   probabilities: 0.929 0.071 
+  left son=1304 (203 obs) right son=1305 (7 obs)
+  Primary splits:
+      nactiveloans        < 3.5         to the right, improve=12.487680, (0 missing)
+      Num_A_PL            < 0.5         to the right, improve= 9.382848, (0 missing)
+      ACCOUNT_STATUS      splits as  LL---R--, improve= 7.659123, (0 missing)
+      ACCOUNT_STATUS_CODE splits as  LLR, improve= 7.659123, (0 missing)
+      DATE_ACCOUNT_OPENED < 16181       to the left,  improve= 5.709643, (0 missing)
+  Surrogate splits:
+      Num_A_PL            < 0.5         to the right, agree=0.990, adj=0.714, (0 split)
+      ACCOUNT_STATUS      splits as  LL---R--, agree=0.986, adj=0.571, (0 split)
+      ACCOUNT_STATUS_CODE splits as  LLR, agree=0.986, adj=0.571, (0 split)
+      min_util_momentum   < 0.005       to the left,  agree=0.981, adj=0.429, (0 split)
+
+Node number 653: 158 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.4303797  P(node) =0.002081769
+    class counts:    90    68
+   probabilities: 0.570 0.430 
+  left son=1306 (42 obs) right son=1307 (116 obs)
+  Primary splits:
+      Num_A_PL     < 4.5         to the right, improve=14.74175, (0 missing)
+      nloans       < 11.5        to the left,  improve=14.04570, (0 missing)
+      nactiveloans < 11.5        to the left,  improve=12.85926, (0 missing)
+      Num_CC       < 2.5         to the left,  improve=11.16457, (0 missing)
+      Num_A_CC     < 2.5         to the left,  improve=11.16457, (0 missing)
+  Surrogate splits:
+      Num_PL                < 4.5         to the right, agree=0.949, adj=0.810, (0 split)
+      Utilization_Momentum1 < -0.045      to the left,  agree=0.804, adj=0.262, (0 split)
+      REPORT_DATE           < 16703       to the left,  agree=0.791, adj=0.214, (0 split)
+      max_util_momentum     < -0.035      to the left,  agree=0.785, adj=0.190, (0 split)
+      Amount_Owe_Momentum1  < -153569     to the left,  agree=0.766, adj=0.119, (0 split)
+
+Node number 774: 591 observations,    complexity param=0.001111111
+  predicted class=N  expected loss=0.1895093  P(node) =0.007786869
+    class counts:   479   112
+   probabilities: 0.810 0.190 
+  left son=1548 (227 obs) right son=1549 (364 obs)
+  Primary splits:
+      Utilization1           < 0.505       to the left,  improve=4.644435, (0 missing)
+      DATE_LAST_RESTRUCTURED < 14138       to the left,  improve=4.405803, (0 missing)
+      AVG_Utilization_3MTH   < 0.525       to the left,  improve=4.232076, (0 missing)
+      Utilization2           < 0.515       to the left,  improve=4.227710, (0 missing)
+      Min_Momentum           < -0.5        to the left,  improve=4.110972, (0 missing)
+  Surrogate splits:
+      AVG_Utilization_3MTH < 0.525       to the left,  agree=0.953, adj=0.877, (0 split)
+      Utilization2         < 0.525       to the left,  agree=0.924, adj=0.802, (0 split)
+      AVG_Utilization_6MTH < 0.535       to the left,  agree=0.914, adj=0.775, (0 split)
+      Utilization3         < 0.535       to the left,  agree=0.902, adj=0.744, (0 split)
+      Utilization4         < 0.575       to the left,  agree=0.887, adj=0.705, (0 split)
+
+Node number 775: 35 observations,    complexity param=0.001296296
+  predicted class=Y  expected loss=0.4571429  P(node) =0.0004611513
+    class counts:    16    19
+   probabilities: 0.457 0.543 
+  left son=1550 (11 obs) right son=1551 (24 obs)
+  Primary splits:
+      Num_A_OD        < 0.5         to the right, improve=9.454762, (0 missing)
+      AMOUNT_PAST_DUE < 1490.5      to the left,  improve=8.004762, (0 missing)
+      DEFAULT_DATE    < 16007.5     to the left,  improve=6.942857, (0 missing)
+      Amount_owe5     < 20556       to the left,  improve=6.259540, (0 missing)
+      Amount_owe4     < 20712.5     to the left,  improve=5.168530, (0 missing)
+  Surrogate splits:
+      DATE_LAST_PAYMENT    < 16675.5     to the right, agree=0.771, adj=0.273, (0 split)
+      Amount_Owe_Momentum3 < -1298.5     to the left,  agree=0.771, adj=0.273, (0 split)
+      Amount_Owe_Momentum5 < -3602       to the left,  agree=0.771, adj=0.273, (0 split)
+      DATE_ACCOUNT_OPENED  < 12134       to the left,  agree=0.743, adj=0.182, (0 split)
+      MOB1                 < 150         to the right, agree=0.743, adj=0.182, (0 split)
+
+Node number 792: 145 observations
+  predicted class=N  expected loss=0.1103448  P(node) =0.001910484
+    class counts:   129    16
+   probabilities: 0.890 0.110 
+
+Node number 793: 222 observations,    complexity param=0.001296296
+  predicted class=N  expected loss=0.2702703  P(node) =0.002925017
+    class counts:   162    60
+   probabilities: 0.730 0.270 
+  left son=1586 (90 obs) right son=1587 (132 obs)
+  Primary splits:
+      Amount_Owe_Momentum4  < -714.5      to the left,  improve=4.792820, (0 missing)
+      Num_CC                < 5.5         to the left,  improve=4.515285, (0 missing)
+      INSTALLMENT_AMOUNT    < 1510        to the right, improve=4.345877, (0 missing)
+      DATE_LAST_PAYMENT     < 16590.5     to the right, improve=4.058316, (0 missing)
+      Utilization_Momentum4 < -0.005      to the left,  improve=3.803974, (0 missing)
+  Surrogate splits:
+      Utilization_Momentum4 < -0.005      to the left,  agree=0.932, adj=0.833, (0 split)
+      Momentum4             < 0.5         to the left,  agree=0.797, adj=0.500, (0 split)
+      Amount_Owe_Momentum1  < -3417.5     to the left,  agree=0.716, adj=0.300, (0 split)
+      Number_of_2plus       < 2.5         to the left,  agree=0.694, adj=0.244, (0 split)
+      Ever30plus_4MTH       splits as  LR, agree=0.689, adj=0.233, (0 split)
+
+Node number 798: 130 observations,    complexity param=0.001790123
+  predicted class=N  expected loss=0.4307692  P(node) =0.001712848
+    class counts:    74    56
+   probabilities: 0.569 0.431 
+  left son=1596 (12 obs) right son=1597 (118 obs)
+  Primary splits:
+      Utilization_Momentum2 < 0.015       to the right, improve=4.906389, (0 missing)
+      Utilization_Momentum1 < 0.015       to the right, improve=3.588557, (0 missing)
+      Amount_Owe_Momentum1  < 583         to the right, improve=3.191699, (0 missing)
+      stdUtil456            < 0.01527525  to the right, improve=3.015385, (0 missing)
+      Utilization_Momentum3 < 0.015       to the right, improve=2.745716, (0 missing)
+  Surrogate splits:
+      Utilization_Momentum1 < 0.015       to the right, agree=0.977, adj=0.750, (0 split)
+      Utilization_Momentum3 < 0.015       to the right, agree=0.962, adj=0.583, (0 split)
+      max_util_momentum     < 0.015       to the right, agree=0.962, adj=0.583, (0 split)
+      Utilization_Momentum4 < 0.015       to the right, agree=0.954, adj=0.500, (0 split)
+      Num_OL                < 1.5         to the right, agree=0.946, adj=0.417, (0 split)
+
+Node number 799: 40 observations,    complexity param=0.001111111
+  predicted class=Y  expected loss=0.225  P(node) =0.0005270301
+    class counts:     9    31
+   probabilities: 0.225 0.775 
+  left son=1598 (9 obs) right son=1599 (31 obs)
+  Primary splits:
+      Utilization_Momentum4 < 0.015       to the right, improve=4.530645, (0 missing)
+      Amount_Owe_Momentum4  < 1343.5      to the right, improve=4.062554, (0 missing)
+      Utilization_Momentum1 < 0.015       to the right, improve=3.200000, (0 missing)
+      stdUtil1to6           < 0.02819176  to the right, improve=2.592857, (0 missing)
+      Amount_Owe_Momentum1  < 822.5       to the right, improve=2.430000, (0 missing)
+  Surrogate splits:
+      Utilization_Momentum1 < 0.015       to the right, agree=0.925, adj=0.667, (0 split)
+      stdUtil1to6           < 0.02819176  to the right, agree=0.925, adj=0.667, (0 split)
+      Amount_owe5           < 61728.5     to the left,  agree=0.900, adj=0.556, (0 split)
+      Amount_owe6           < 66625.5     to the left,  agree=0.900, adj=0.556, (0 split)
+      stdUtil123            < 0.01763763  to the right, agree=0.900, adj=0.556, (0 split)
+
+Node number 846: 29 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.4137931  P(node) =0.0003820968
+    class counts:    17    12
+   probabilities: 0.586 0.414 
+  left son=1692 (12 obs) right son=1693 (17 obs)
+  Primary splits:
+      INSTALLMENT_AMOUNT         < 2994        to the right, improve=4.470926, (0 missing)
+      ACCOUNT_STATUS             splits as  RL-LLLR-, improve=3.695228, (0 missing)
+      Utilization_Momentum1      < 0.025       to the left,  improve=3.627407, (0 missing)
+      min_util_momentum          < 0.005       to the left,  improve=3.627407, (0 missing)
+      INSTALLMENT_NUMBER_PAYMENT < -0.5        to the right, improve=3.457854, (0 missing)
+  Surrogate splits:
+      INSTALLMENT_NUMBER_PAYMENT < 12          to the right, agree=0.828, adj=0.583, (0 split)
+      Loan_amount1               < 206251      to the right, agree=0.828, adj=0.583, (0 split)
+      Loan_amount2               < 206251      to the right, agree=0.828, adj=0.583, (0 split)
+      Loan_amount3               < 206251      to the right, agree=0.828, adj=0.583, (0 split)
+      Loan_amount4               < 206251      to the right, agree=0.828, adj=0.583, (0 split)
+
+Node number 847: 32 observations
+  predicted class=Y  expected loss=0.1875  P(node) =0.000421624
+    class counts:     6    26
+   probabilities: 0.188 0.812 
+
+Node number 852: 59 observations
+  predicted class=N  expected loss=0.3220339  P(node) =0.0007773693
+    class counts:    40    19
+   probabilities: 0.678 0.322 
+
+Node number 853: 14 observations
+  predicted class=Y  expected loss=0.2142857  P(node) =0.0001844605
+    class counts:     3    11
+   probabilities: 0.214 0.786 
+
+Node number 962: 12 observations
+  predicted class=N  expected loss=0  P(node) =0.000158109
+    class counts:    12     0
+   probabilities: 1.000 0.000 
+
+Node number 963: 17 observations
+  predicted class=Y  expected loss=0  P(node) =0.0002239878
+    class counts:     0    17
+   probabilities: 0.000 1.000 
+
+Node number 1010: 23 observations
+  predicted class=N  expected loss=0.173913  P(node) =0.0003030423
+    class counts:    19     4
+   probabilities: 0.826 0.174 
+
+Node number 1011: 12 observations
+  predicted class=Y  expected loss=0.25  P(node) =0.000158109
+    class counts:     3     9
+   probabilities: 0.250 0.750 
+
+Node number 1020: 44 observations,    complexity param=0.001296296
+  predicted class=N  expected loss=0.5  P(node) =0.0005797331
+    class counts:    22    22
+   probabilities: 0.500 0.500 
+  left son=2040 (7 obs) right son=2041 (37 obs)
+  Primary splits:
+      nloans                 < 10          to the left,  improve=4.162162, (0 missing)
+      ACCOUNT_TYPE           splits as  LLR---LRL-R, improve=3.689441, (0 missing)
+      DATE_ACCOUNT_OPENED    < 16299.5     to the left,  improve=3.422222, (0 missing)
+      DATE_LAST_RESTRUCTURED < -4598.5     to the left,  improve=3.422222, (0 missing)
+      Utilization1           < 0.915       to the left,  improve=3.008547, (0 missing)
+  Surrogate splits:
+      nactiveloans < 9.5         to the left,  agree=0.977, adj=0.857, (0 split)
+      Num_CC       < 2.5         to the left,  agree=0.955, adj=0.714, (0 split)
+      Num_A_CC     < 2.5         to the left,  agree=0.955, adj=0.714, (0 split)
+      Num_HL       < 0.5         to the left,  agree=0.909, adj=0.429, (0 split)
+      Num_A_HL     < 0.5         to the left,  agree=0.909, adj=0.429, (0 split)
+
+Node number 1021: 9 observations
+  predicted class=Y  expected loss=0  P(node) =0.0001185818
+    class counts:     0     9
+   probabilities: 0.000 1.000 
+
+Node number 1298: 90 observations
+  predicted class=N  expected loss=0  P(node) =0.001185818
+    class counts:    90     0
+   probabilities: 1.000 0.000 
+
+Node number 1299: 63 observations,    complexity param=0.001604938
+  predicted class=N  expected loss=0.3174603  P(node) =0.0008300723
+    class counts:    43    20
+   probabilities: 0.683 0.317 
+  left son=2598 (50 obs) right son=2599 (13 obs)
+  Primary splits:
+      nactiveloans < 17.5        to the left,  improve=15.261590, (0 missing)
+      Num_PL       < 2.5         to the left,  improve= 7.814408, (0 missing)
+      Num_A_PL     < 2.5         to the left,  improve= 7.814408, (0 missing)
+      Loan_amount4 < 68333.5     to the right, improve= 4.801587, (0 missing)
+      Loan_amount5 < 68333.5     to the right, improve= 4.801587, (0 missing)
+  Surrogate splits:
+      Utilization_Momentum1 < 0.25        to the left,  agree=0.857, adj=0.308, (0 split)
+      max_util_momentum     < 0.685       to the left,  agree=0.857, adj=0.308, (0 split)
+      Utilization1          < 1.215       to the left,  agree=0.841, adj=0.231, (0 split)
+      Amount_Owe_Momentum1  < 28680       to the left,  agree=0.841, adj=0.231, (0 split)
+      stdUtil123            < 0.2080521   to the left,  agree=0.841, adj=0.231, (0 split)
+
+Node number 1302: 183 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.2185792  P(node) =0.002411162
+    class counts:   143    40
+   probabilities: 0.781 0.219 
+  left son=2604 (172 obs) right son=2605 (11 obs)
+  Primary splits:
+      Num_OD   < 0.5         to the right, improve=14.292730, (0 missing)
+      Num_A_OD < 0.5         to the right, improve=14.292730, (0 missing)
+      nloans   < 22.5        to the right, improve= 8.529921, (0 missing)
+      Num_CC   < 10.5        to the left,  improve= 7.582784, (0 missing)
+      Num_A_CC < 10.5        to the left,  improve= 7.582784, (0 missing)
+  Surrogate splits:
+      Num_A_OD    < 0.5         to the right, agree=1.000, adj=1.000, (0 split)
+      REPORT_DATE < 16703       to the right, agree=0.945, adj=0.091, (0 split)
+
+Node number 1303: 17 observations
+  predicted class=Y  expected loss=0  P(node) =0.0002239878
+    class counts:     0    17
+   probabilities: 0.000 1.000 
+
+Node number 1304: 203 observations
+  predicted class=N  expected loss=0.03940887  P(node) =0.002674678
+    class counts:   195     8
+   probabilities: 0.961 0.039 
+
+Node number 1305: 7 observations
+  predicted class=Y  expected loss=0  P(node) =9.223026e-05
+    class counts:     0     7
+   probabilities: 0.000 1.000 
+
+Node number 1306: 42 observations
+  predicted class=N  expected loss=0.07142857  P(node) =0.0005533816
+    class counts:    39     3
+   probabilities: 0.929 0.071 
+
+Node number 1307: 116 observations,    complexity param=0.001851852
+  predicted class=Y  expected loss=0.4396552  P(node) =0.001528387
+    class counts:    51    65
+   probabilities: 0.440 0.560 
+  left son=2614 (27 obs) right son=2615 (89 obs)
+  Primary splits:
+      nloans       < 10.5        to the left,  improve=9.905901, (0 missing)
+      nactiveloans < 10          to the left,  improve=9.905901, (0 missing)
+      Num_A_CC     < 6           to the right, improve=7.631363, (0 missing)
+      Utilization5 < 0.955       to the left,  improve=7.597120, (0 missing)
+      MOB1         < 37.5        to the right, improve=7.518498, (0 missing)
+  Surrogate splits:
+      nactiveloans < 10          to the left,  agree=1.000, adj=1.000, (0 split)
+      Num_CC       < 1.5         to the left,  agree=0.905, adj=0.593, (0 split)
+      Num_A_CC     < 1.5         to the left,  agree=0.905, adj=0.593, (0 split)
+      Num_PL       < 3.5         to the left,  agree=0.879, adj=0.481, (0 split)
+      Num_HP       < 0.5         to the left,  agree=0.828, adj=0.259, (0 split)
+
+Node number 1548: 227 observations
+  predicted class=N  expected loss=0.1101322  P(node) =0.002990896
+    class counts:   202    25
+   probabilities: 0.890 0.110 
+
+Node number 1549: 364 observations,    complexity param=0.001111111
+  predicted class=N  expected loss=0.239011  P(node) =0.004795973
+    class counts:   277    87
+   probabilities: 0.761 0.239 
+  left son=3098 (348 obs) right son=3099 (16 obs)
+  Primary splits:
+      DATE_LAST_RESTRUCTURED < 14138       to the left,  improve=6.732490, (0 missing)
+      nloans                 < 6.5         to the right, improve=4.050380, (0 missing)
+      nactiveloans           < 7.5         to the right, improve=4.008473, (0 missing)
+      Num_A_OD               < 0.5         to the right, improve=3.437092, (0 missing)
+      Num_A_CC               < 2.5         to the right, improve=2.817907, (0 missing)
+  Surrogate splits:
+      ACCOUNT_TYPE splits as  -LL---LLL-R, agree=0.959, adj=0.062, (0 split)
+
+Node number 1550: 11 observations
+  predicted class=N  expected loss=0  P(node) =0.0001449333
+    class counts:    11     0
+   probabilities: 1.000 0.000 
+
+Node number 1551: 24 observations,    complexity param=0.001111111
+  predicted class=Y  expected loss=0.2083333  P(node) =0.000316218
+    class counts:     5    19
+   probabilities: 0.208 0.792 
+  left son=3102 (7 obs) right son=3103 (17 obs)
+  Primary splits:
+      Amount_owe2 < 14565       to the left,  improve=5.059524, (0 missing)
+      Amount_owe3 < 14324       to the left,  improve=5.059524, (0 missing)
+      Amount_owe4 < 18448       to the left,  improve=5.059524, (0 missing)
+      Amount_owe5 < 17833.5     to the left,  improve=5.059524, (0 missing)
+      Amount_owe1 < 14795.5     to the left,  improve=4.166667, (0 missing)
+  Surrogate splits:
+      Amount_owe3 < 14324       to the left,  agree=1.000, adj=1.000, (0 split)
+      Amount_owe4 < 18448       to the left,  agree=1.000, adj=1.000, (0 split)
+      Amount_owe5 < 17833.5     to the left,  agree=1.000, adj=1.000, (0 split)
+      Amount_owe6 < 18926       to the left,  agree=0.958, adj=0.857, (0 split)
+      Amount_owe1 < 5665        to the left,  agree=0.917, adj=0.714, (0 split)
+
+Node number 1586: 90 observations
+  predicted class=N  expected loss=0.1444444  P(node) =0.001185818
+    class counts:    77    13
+   probabilities: 0.856 0.144 
+
+Node number 1587: 132 observations,    complexity param=0.001296296
+  predicted class=N  expected loss=0.3560606  P(node) =0.001739199
+    class counts:    85    47
+   probabilities: 0.644 0.356 
+  left son=3174 (109 obs) right son=3175 (23 obs)
+  Primary splits:
+      Num_CC            < 5.5         to the left,  improve=4.884511, (0 missing)
+      nactiveloans      < 11.5        to the right, improve=3.346970, (0 missing)
+      DATE_LAST_PAYMENT < 16703.5     to the right, improve=2.537567, (0 missing)
+      Num_A_OTH_HP      < 0.5         to the left,  improve=1.897160, (0 missing)
+      Num_A_OL          < 0.5         to the left,  improve=1.863636, (0 missing)
+  Surrogate splits:
+      Num_A_CC             < 4.5         to the left,  agree=0.924, adj=0.565, (0 split)
+      Num_PL               < 7.5         to the left,  agree=0.917, adj=0.522, (0 split)
+      nloans               < 17.5        to the left,  agree=0.917, adj=0.522, (0 split)
+      Utilization5         < 1.005       to the left,  agree=0.864, adj=0.217, (0 split)
+      AVG_Utilization_6MTH < 0.995       to the left,  agree=0.864, adj=0.217, (0 split)
+
+Node number 1596: 12 observations
+  predicted class=N  expected loss=0  P(node) =0.000158109
+    class counts:    12     0
+   probabilities: 1.000 0.000 
+
+Node number 1597: 118 observations,    complexity param=0.001790123
+  predicted class=N  expected loss=0.4745763  P(node) =0.001554739
+    class counts:    62    56
+   probabilities: 0.525 0.475 
+  left son=3194 (96 obs) right son=3195 (22 obs)
+  Primary splits:
+      Num_A_PL             < 3.5         to the left,  improve=3.453518, (0 missing)
+      nloans               < 5.5         to the left,  improve=3.307685, (0 missing)
+      Amount_Owe_Momentum3 < -2624.5     to the left,  improve=2.591147, (0 missing)
+      Num_PL               < 3.5         to the left,  improve=2.309970, (0 missing)
+      Num_A_OTH_HP         < 0.5         to the right, improve=2.152403, (0 missing)
+  Surrogate splits:
+      nactiveloans        < 10.5        to the left,  agree=0.898, adj=0.455, (0 split)
+      Num_PL              < 4.5         to the left,  agree=0.881, adj=0.364, (0 split)
+      Num_A_CC            < 3.5         to the left,  agree=0.839, adj=0.136, (0 split)
+      DATE_ACCOUNT_OPENED < 16470.5     to the left,  agree=0.822, adj=0.045, (0 split)
+      MOB1                < 7.5         to the right, agree=0.822, adj=0.045, (0 split)
+
+Node number 1598: 9 observations
+  predicted class=N  expected loss=0.3333333  P(node) =0.0001185818
+    class counts:     6     3
+   probabilities: 0.667 0.333 
+
+Node number 1599: 31 observations
+  predicted class=Y  expected loss=0.09677419  P(node) =0.0004084483
+    class counts:     3    28
+   probabilities: 0.097 0.903 
+
+Node number 1692: 12 observations
+  predicted class=N  expected loss=0.08333333  P(node) =0.000158109
+    class counts:    11     1
+   probabilities: 0.917 0.083 
+
+Node number 1693: 17 observations
+  predicted class=Y  expected loss=0.3529412  P(node) =0.0002239878
+    class counts:     6    11
+   probabilities: 0.353 0.647 
+
+Node number 2040: 7 observations
+  predicted class=N  expected loss=0  P(node) =9.223026e-05
+    class counts:     7     0
+   probabilities: 1.000 0.000 
+
+Node number 2041: 37 observations,    complexity param=0.001296296
+  predicted class=Y  expected loss=0.4054054  P(node) =0.0004875028
+    class counts:    15    22
+   probabilities: 0.405 0.595 
+  left son=4082 (19 obs) right son=4083 (18 obs)
+  Primary splits:
+      nactiveloans < 14.5        to the right, improve=6.071756, (0 missing)
+      Num_A_CC     < 3.5         to the right, improve=3.909266, (0 missing)
+      Utilization5 < 0.905       to the left,  improve=3.299376, (0 missing)
+      Num_CC       < 7.5         to the right, improve=3.243432, (0 missing)
+      Utilization1 < 0.855       to the left,  improve=3.243432, (0 missing)
+  Surrogate splits:
+      nloans       < 15.5        to the right, agree=0.892, adj=0.778, (0 split)
+      Num_A_PL     < 4.5         to the right, agree=0.838, adj=0.667, (0 split)
+      Num_A_CC     < 5.5         to the right, agree=0.784, adj=0.556, (0 split)
+      Utilization6 < 0.985       to the left,  agree=0.730, adj=0.444, (0 split)
+      Loan_amount1 < 115805      to the right, agree=0.703, adj=0.389, (0 split)
+
+Node number 2598: 50 observations,    complexity param=0.001111111
+  predicted class=N  expected loss=0.14  P(node) =0.0006587876
+    class counts:    43     7
+   probabilities: 0.860 0.140 
+  left son=5196 (43 obs) right son=5197 (7 obs)
+  Primary splits:
+      Loan_amount1 < 37000       to the right, improve=5.368904, (0 missing)
+      Loan_amount2 < 37000       to the right, improve=5.368904, (0 missing)
+      Loan_amount3 < 37000       to the right, improve=5.368904, (0 missing)
+      Loan_amount4 < 37000       to the right, improve=5.368904, (0 missing)
+      Loan_amount5 < 37000       to the right, improve=5.368904, (0 missing)
+  Surrogate splits:
+      Loan_amount2 < 37000       to the right, agree=1, adj=1, (0 split)
+      Loan_amount3 < 37000       to the right, agree=1, adj=1, (0 split)
+      Loan_amount4 < 37000       to the right, agree=1, adj=1, (0 split)
+      Loan_amount5 < 37000       to the right, agree=1, adj=1, (0 split)
+      Loan_amount6 < 37000       to the right, agree=1, adj=1, (0 split)
+
+Node number 2599: 13 observations
+  predicted class=Y  expected loss=0  P(node) =0.0001712848
+    class counts:     0    13
+   probabilities: 0.000 1.000 
+
+Node number 2604: 172 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.1686047  P(node) =0.002266229
+    class counts:   143    29
+   probabilities: 0.831 0.169 
+  left son=5208 (90 obs) right son=5209 (82 obs)
+  Primary splits:
+      Num_CC       < 8.5         to the left,  improve=10.733130, (0 missing)
+      Num_A_CC     < 8.5         to the left,  improve=10.733130, (0 missing)
+      nloans       < 19.5        to the right, improve= 7.561136, (0 missing)
+      nactiveloans < 19.5        to the right, improve= 7.561136, (0 missing)
+      Num_HL       < 2.5         to the right, improve= 5.238787, (0 missing)
+  Surrogate splits:
+      Num_A_CC < 8.5         to the left,  agree=1.000, adj=1.000, (0 split)
+      Num_PL   < 3.5         to the right, agree=0.831, adj=0.646, (0 split)
+      Num_A_PL < 3           to the right, agree=0.831, adj=0.646, (0 split)
+      Num_HL   < 0.5         to the right, agree=0.820, adj=0.622, (0 split)
+      Num_A_HL < 0.5         to the right, agree=0.820, adj=0.622, (0 split)
+
+Node number 2605: 11 observations
+  predicted class=Y  expected loss=0  P(node) =0.0001449333
+    class counts:     0    11
+   probabilities: 0.000 1.000 
+
+Node number 2614: 27 observations
+  predicted class=N  expected loss=0.1851852  P(node) =0.0003557453
+    class counts:    22     5
+   probabilities: 0.815 0.185 
+
+Node number 2615: 89 observations,    complexity param=0.001851852
+  predicted class=Y  expected loss=0.3258427  P(node) =0.001172642
+    class counts:    29    60
+   probabilities: 0.326 0.674 
+  left son=5230 (38 obs) right son=5231 (51 obs)
+  Primary splits:
+      nactiveloans        < 13.5        to the right, improve=12.397310, (0 missing)
+      Num_A_CC            < 6           to the right, improve=11.408820, (0 missing)
+      nloans              < 13.5        to the right, improve=11.136840, (0 missing)
+      DATE_ACCOUNT_OPENED < 15552.5     to the left,  improve= 8.211194, (0 missing)
+      MOB1                < 37.5        to the right, improve= 8.211194, (0 missing)
+  Surrogate splits:
+      nloans       < 13.5        to the right, agree=0.798, adj=0.526, (0 split)
+      Num_CC       < 6.5         to the right, agree=0.753, adj=0.421, (0 split)
+      Num_A_CL     < 1.5         to the left,  agree=0.753, adj=0.421, (0 split)
+      Num_A_CC     < 4.5         to the right, agree=0.730, adj=0.368, (0 split)
+      Utilization1 < 0.595       to the left,  agree=0.719, adj=0.342, (0 split)
+
+Node number 3098: 348 observations,    complexity param=0.001037037
+  predicted class=N  expected loss=0.2183908  P(node) =0.004585161
+    class counts:   272    76
+   probabilities: 0.782 0.218 
+  left son=6196 (32 obs) right son=6197 (316 obs)
+  Primary splits:
+      nactiveloans         < 7.5         to the right, improve=3.361560, (0 missing)
+      Num_A_OD             < 0.5         to the right, improve=3.194949, (0 missing)
+      nloans               < 6.5         to the right, improve=3.147599, (0 missing)
+      Amount_Owe_Momentum4 < -1273.5     to the right, improve=2.142413, (0 missing)
+      Num_A_CC             < 2.5         to the right, improve=2.129384, (0 missing)
+  Surrogate splits:
+      Num_A_CC              < 3.5         to the right, agree=0.940, adj=0.344, (0 split)
+      Num_A_PL              < 3.5         to the right, agree=0.925, adj=0.188, (0 split)
+      Num_CC                < 5.5         to the right, agree=0.922, adj=0.156, (0 split)
+      Utilization_Momentum1 < 0.305       to the right, agree=0.914, adj=0.063, (0 split)
+      Utilization_Momentum2 < 0.035       to the right, agree=0.914, adj=0.063, (0 split)
+
+Node number 3099: 16 observations
+  predicted class=Y  expected loss=0.3125  P(node) =0.000210812
+    class counts:     5    11
+   probabilities: 0.312 0.688 
+
+Node number 3102: 7 observations
+  predicted class=N  expected loss=0.2857143  P(node) =9.223026e-05
+    class counts:     5     2
+   probabilities: 0.714 0.286 
+
+Node number 3103: 17 observations
+  predicted class=Y  expected loss=0  P(node) =0.0002239878
+    class counts:     0    17
+   probabilities: 0.000 1.000 
+
+Node number 3174: 109 observations,    complexity param=0.001111111
+  predicted class=N  expected loss=0.293578  P(node) =0.001436157
+    class counts:    77    32
+   probabilities: 0.706 0.294 
+  left son=6348 (27 obs) right son=6349 (82 obs)
+  Primary splits:
+      INSTALLMENT_NUMBER_PAYMENT < 42          to the left,  improve=3.458525, (0 missing)
+      Loan_amount1               < 85205.5     to the left,  improve=2.906515, (0 missing)
+      Loan_amount2               < 85205.5     to the left,  improve=2.906515, (0 missing)
+      Loan_amount3               < 85205.5     to the left,  improve=2.906515, (0 missing)
+      Loan_amount4               < 85205.5     to the left,  improve=2.906515, (0 missing)
+  Surrogate splits:
+      INSTALLMENT_AMOUNT < 200         to the left,  agree=0.890, adj=0.556, (0 split)
+      Loan_amount1       < 109000      to the left,  agree=0.881, adj=0.519, (0 split)
+      Loan_amount2       < 109000      to the left,  agree=0.881, adj=0.519, (0 split)
+      Loan_amount3       < 109000      to the left,  agree=0.881, adj=0.519, (0 split)
+      Loan_amount4       < 109000      to the left,  agree=0.881, adj=0.519, (0 split)
+
+Node number 3175: 23 observations,    complexity param=0.001296296
+  predicted class=Y  expected loss=0.3478261  P(node) =0.0003030423
+    class counts:     8    15
+   probabilities: 0.348 0.652 
+  left son=6350 (7 obs) right son=6351 (16 obs)
+  Primary splits:
+      nactiveloans         < 10.5        to the right, improve=8.559783, (0 missing)
+      Num_A_PL             < 2.5         to the right, improve=3.006211, (0 missing)
+      ACCOUNT_TYPE         splits as  -LL----RR--, improve=2.702640, (0 missing)
+      Amount_Owe_Momentum5 < 1314        to the right, improve=2.702640, (0 missing)
+      Num_PL               < 5.5         to the right, improve=2.173244, (0 missing)
+  Surrogate splits:
+      Num_A_PL     < 4           to the right, agree=0.957, adj=0.857, (0 split)
+      Num_PL       < 9.5         to the right, agree=0.913, adj=0.714, (0 split)
+      Num_CC       < 9           to the right, agree=0.913, adj=0.714, (0 split)
+      nloans       < 22          to the right, agree=0.913, adj=0.714, (0 split)
+      ACCOUNT_TYPE splits as  -LR----RR--, agree=0.826, adj=0.429, (0 split)
+
+Node number 3194: 96 observations,    complexity param=0.001790123
+  predicted class=N  expected loss=0.4166667  P(node) =0.001264872
+    class counts:    56    40
+   probabilities: 0.583 0.417 
+  left son=6388 (16 obs) right son=6389 (80 obs)
+  Primary splits:
+      nloans          < 10.5        to the right, improve=3.266667, (0 missing)
+      AMOUNT_PAST_DUE < 62537.5     to the right, improve=2.769231, (0 missing)
+      Num_PL          < 4.5         to the right, improve=2.621723, (0 missing)
+      Num_A_OTH_HP    < 0.5         to the right, improve=2.077232, (0 missing)
+      Num_A_PL        < 0.5         to the right, improve=1.831502, (0 missing)
+  Surrogate splits:
+      Num_CC                 < 4.5         to the right, agree=0.917, adj=0.500, (0 split)
+      Num_PL                 < 4.5         to the right, agree=0.885, adj=0.312, (0 split)
+      Num_A_CC               < 2.5         to the right, agree=0.875, adj=0.250, (0 split)
+      nactiveloans           < 8.5         to the right, agree=0.875, adj=0.250, (0 split)
+      DATE_LAST_RESTRUCTURED < -4794       to the right, agree=0.854, adj=0.125, (0 split)
+
+Node number 3195: 22 observations
+  predicted class=Y  expected loss=0.2727273  P(node) =0.0002898665
+    class counts:     6    16
+   probabilities: 0.273 0.727 
+
+Node number 4082: 19 observations
+  predicted class=N  expected loss=0.3157895  P(node) =0.0002503393
+    class counts:    13     6
+   probabilities: 0.684 0.316 
+
+Node number 4083: 18 observations
+  predicted class=Y  expected loss=0.1111111  P(node) =0.0002371635
+    class counts:     2    16
+   probabilities: 0.111 0.889 
+
+Node number 5196: 43 observations
+  predicted class=N  expected loss=0.04651163  P(node) =0.0005665573
+    class counts:    41     2
+   probabilities: 0.953 0.047 
+
+Node number 5197: 7 observations
+  predicted class=Y  expected loss=0.2857143  P(node) =9.223026e-05
+    class counts:     2     5
+   probabilities: 0.286 0.714 
+
+Node number 5208: 90 observations
+  predicted class=N  expected loss=0  P(node) =0.001185818
+    class counts:    90     0
+   probabilities: 1.000 0.000 
+
+Node number 5209: 82 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.3536585  P(node) =0.001080412
+    class counts:    53    29
+   probabilities: 0.646 0.354 
+  left son=10418 (53 obs) right son=10419 (29 obs)
+  Primary splits:
+      nloans       < 19.5        to the right, improve=37.48780, (0 missing)
+      nactiveloans < 19.5        to the right, improve=37.48780, (0 missing)
+      Num_PL       < 3.5         to the left,  improve=17.91857, (0 missing)
+      Num_A_PL     < 3           to the left,  improve=17.91857, (0 missing)
+      Num_OD       < 2.5         to the right, improve=14.52947, (0 missing)
+  Surrogate splits:
+      nactiveloans < 19.5        to the right, agree=1.000, adj=1.000, (0 split)
+      Num_PL       < 3.5         to the left,  agree=0.854, adj=0.586, (0 split)
+      Num_A_PL     < 3           to the left,  agree=0.854, adj=0.586, (0 split)
+      Num_OD       < 1.5         to the right, agree=0.793, adj=0.414, (0 split)
+      Num_A_OD     < 1.5         to the right, agree=0.793, adj=0.414, (0 split)
+
+Node number 5230: 38 observations,    complexity param=0.001851852
+  predicted class=N  expected loss=0.3684211  P(node) =0.0005006786
+    class counts:    24    14
+   probabilities: 0.632 0.368 
+  left son=10460 (13 obs) right son=10461 (25 obs)
+  Primary splits:
+      Num_CC       < 4.5         to the left,  improve=5.364211, (0 missing)
+      Num_A_CC     < 4.5         to the left,  improve=5.364211, (0 missing)
+      Loan_amount6 < 45000       to the right, improve=5.200877, (0 missing)
+      Loan_amount3 < 85000       to the right, improve=3.987241, (0 missing)
+      Loan_amount4 < 85000       to the right, improve=3.987241, (0 missing)
+  Surrogate splits:
+      Num_A_CC < 4.5         to the left,  agree=1.000, adj=1.000, (0 split)
+      Num_OD   < 0.5         to the right, agree=0.868, adj=0.615, (0 split)
+      Num_A_OD < 0.5         to the right, agree=0.868, adj=0.615, (0 split)
+      Num_HP   < 1.5         to the right, agree=0.816, adj=0.462, (0 split)
+      Num_A_HP < 1.5         to the right, agree=0.816, adj=0.462, (0 split)
+
+Node number 5231: 51 observations,    complexity param=0.001111111
+  predicted class=Y  expected loss=0.09803922  P(node) =0.0006719633
+    class counts:     5    46
+   probabilities: 0.098 0.902 
+  left son=10462 (7 obs) right son=10463 (44 obs)
+  Primary splits:
+      Num_CC              < 2.5         to the left,  improve=6.162465, (0 missing)
+      Num_A_CC            < 2.5         to the left,  improve=6.162465, (0 missing)
+      DATE_ACCOUNT_OPENED < 14930.5     to the left,  improve=3.636491, (0 missing)
+      MOB1                < 58          to the right, improve=3.636491, (0 missing)
+      Num_PL              < 3.5         to the left,  improve=2.865762, (0 missing)
+  Surrogate splits:
+      Num_A_CC            < 2.5         to the left,  agree=1.000, adj=1.000, (0 split)
+      DATE_ACCOUNT_OPENED < 14930.5     to the left,  agree=0.922, adj=0.429, (0 split)
+      MOB1                < 58          to the right, agree=0.922, adj=0.429, (0 split)
+      Num_OD              < 1.5         to the right, agree=0.902, adj=0.286, (0 split)
+      Num_CL              < 5.5         to the right, agree=0.902, adj=0.286, (0 split)
+
+Node number 6196: 32 observations
+  predicted class=N  expected loss=0  P(node) =0.000421624
+    class counts:    32     0
+   probabilities: 1.000 0.000 
+
+Node number 6197: 316 observations,    complexity param=0.001037037
+  predicted class=N  expected loss=0.2405063  P(node) =0.004163537
+    class counts:   240    76
+   probabilities: 0.759 0.241 
+  left son=12394 (168 obs) right son=12395 (148 obs)
+  Primary splits:
+      DEFAULT_DATE         < 15997.5     to the left,  improve=2.751918, (0 missing)
+      Amount_Owe_Momentum3 < -925.5      to the right, improve=2.671713, (0 missing)
+      Amount_Owe_Momentum4 < -1273.5     to the right, improve=2.630831, (0 missing)
+      DATE_LAST_PAYMENT    < 15870.5     to the left,  improve=2.593970, (0 missing)
+      DATE_ACCOUNT_OPENED  < 15157       to the left,  improve=2.558941, (0 missing)
+  Surrogate splits:
+      Momentum1           < 0.5         to the left,  agree=0.747, adj=0.459, (0 split)
+      AMOUNT_PAST_DUE     < 116         to the left,  agree=0.734, adj=0.432, (0 split)
+      Min_Momentum        < -0.5        to the left,  agree=0.665, adj=0.284, (0 split)
+      DATE_ACCOUNT_OPENED < 15584       to the left,  agree=0.655, adj=0.264, (0 split)
+      MOB1                < 34.5        to the right, agree=0.655, adj=0.264, (0 split)
+
+Node number 6348: 27 observations
+  predicted class=N  expected loss=0.07407407  P(node) =0.0003557453
+    class counts:    25     2
+   probabilities: 0.926 0.074 
+
+Node number 6349: 82 observations,    complexity param=0.001111111
+  predicted class=N  expected loss=0.3658537  P(node) =0.001080412
+    class counts:    52    30
+   probabilities: 0.634 0.366 
+  left son=12698 (56 obs) right son=12699 (26 obs)
+  Primary splits:
+      AMOUNT_PAST_DUE < 4950        to the right, improve=3.392187, (0 missing)
+      Number_of_2plus < 1.5         to the right, improve=3.100179, (0 missing)
+      Loan_amount1    < 345007.5    to the right, improve=2.453542, (0 missing)
+      Loan_amount2    < 345007.5    to the right, improve=2.453542, (0 missing)
+      Loan_amount3    < 345007.5    to the right, improve=2.453542, (0 missing)
+  Surrogate splits:
+      DEFAULT_DATE       < -4610       to the right, agree=0.890, adj=0.654, (0 split)
+      Momentum1          < -0.5        to the right, agree=0.854, adj=0.538, (0 split)
+      INSTALLMENT_AMOUNT < 1510        to the right, agree=0.841, adj=0.500, (0 split)
+      Number_of_1plus    < 2.5         to the right, agree=0.841, adj=0.500, (0 split)
+      Momentum4          < 0.5         to the right, agree=0.829, adj=0.462, (0 split)
+
+Node number 6350: 7 observations
+  predicted class=N  expected loss=0  P(node) =9.223026e-05
+    class counts:     7     0
+   probabilities: 1.000 0.000 
+
+Node number 6351: 16 observations
+  predicted class=Y  expected loss=0.0625  P(node) =0.000210812
+    class counts:     1    15
+   probabilities: 0.062 0.937 
+
+Node number 6388: 16 observations
+  predicted class=N  expected loss=0.125  P(node) =0.000210812
+    class counts:    14     2
+   probabilities: 0.875 0.125 
+
+Node number 6389: 80 observations,    complexity param=0.001790123
+  predicted class=N  expected loss=0.475  P(node) =0.00105406
+    class counts:    42    38
+   probabilities: 0.525 0.475 
+  left son=12778 (22 obs) right son=12779 (58 obs)
+  Primary splits:
+      nloans               < 5.5         to the left,  improve=3.724451, (0 missing)
+      Num_A_OTH_HP         < 0.5         to the right, improve=3.201952, (0 missing)
+      Num_CC               < 0.5         to the left,  improve=3.125644, (0 missing)
+      Num_OTH_HP           < 0.5         to the right, improve=2.792308, (0 missing)
+      Amount_Owe_Momentum3 < -2624.5     to the left,  improve=2.684314, (0 missing)
+  Surrogate splits:
+      nactiveloans < 2.5         to the left,  agree=0.812, adj=0.318, (0 split)
+      Num_PL       < 0.5         to the left,  agree=0.775, adj=0.182, (0 split)
+      Utilization1 < 0.12        to the left,  agree=0.762, adj=0.136, (0 split)
+      Utilization4 < 0.195       to the left,  agree=0.762, adj=0.136, (0 split)
+      Utilization6 < 0.405       to the left,  agree=0.762, adj=0.136, (0 split)
+
+Node number 10418: 53 observations
+  predicted class=N  expected loss=0  P(node) =0.0006983148
+    class counts:    53     0
+   probabilities: 1.000 0.000 
+
+Node number 10419: 29 observations
+  predicted class=Y  expected loss=0  P(node) =0.0003820968
+    class counts:     0    29
+   probabilities: 0.000 1.000 
+
+Node number 10460: 13 observations
+  predicted class=N  expected loss=0  P(node) =0.0001712848
+    class counts:    13     0
+   probabilities: 1.000 0.000 
+
+Node number 10461: 25 observations,    complexity param=0.001851852
+  predicted class=Y  expected loss=0.44  P(node) =0.0003293938
+    class counts:    11    14
+   probabilities: 0.440 0.560 
+  left son=20922 (11 obs) right son=20923 (14 obs)
+  Primary splits:
+      Num_A_CC            < 6           to the right, improve=12.320000, (0 missing)
+      DATE_ACCOUNT_OPENED < 15973.5     to the left,  improve= 6.453333, (0 missing)
+      MOB1                < 23.5        to the right, improve= 6.453333, (0 missing)
+      Num_CC              < 6           to the right, improve= 5.445000, (0 missing)
+      Num_HL              < 1.5         to the left,  improve= 5.445000, (0 missing)
+  Surrogate splits:
+      DATE_ACCOUNT_OPENED < 15973.5     to the left,  agree=0.84, adj=0.636, (0 split)
+      MOB1                < 23.5        to the right, agree=0.84, adj=0.636, (0 split)
+      Num_CC              < 6           to the right, agree=0.80, adj=0.545, (0 split)
+      Num_HL              < 1.5         to the left,  agree=0.80, adj=0.545, (0 split)
+      Num_A_HL            < 1.5         to the left,  agree=0.80, adj=0.545, (0 split)
+
+Node number 10462: 7 observations
+  predicted class=N  expected loss=0.2857143  P(node) =9.223026e-05
+    class counts:     5     2
+   probabilities: 0.714 0.286 
+
+Node number 10463: 44 observations
+  predicted class=Y  expected loss=0  P(node) =0.0005797331
+    class counts:     0    44
+   probabilities: 0.000 1.000 
+
+Node number 12394: 168 observations,    complexity param=0.001037037
+  predicted class=N  expected loss=0.1785714  P(node) =0.002213526
+    class counts:   138    30
+   probabilities: 0.821 0.179 
+  left son=24788 (129 obs) right son=24789 (39 obs)
+  Primary splits:
+      Num_A_PL             < 1.5         to the left,  improve=2.433001, (0 missing)
+      Amount_Owe_Momentum3 < -69         to the right, improve=2.323959, (0 missing)
+      DATE_ACCOUNT_OPENED  < 16333       to the left,  improve=1.792952, (0 missing)
+      Num_HP               < 0.5         to the right, improve=1.682295, (0 missing)
+      ACCOUNT_STATUS       splits as  L--RLRR-, improve=1.496012, (0 missing)
+  Surrogate splits:
+      nactiveloans < 3.5         to the left,  agree=0.857, adj=0.385, (0 split)
+      Amount_owe1  < 1264842     to the left,  agree=0.774, adj=0.026, (0 split)
+      Amount_owe2  < 1265594     to the left,  agree=0.774, adj=0.026, (0 split)
+      Amount_owe3  < 1155734     to the left,  agree=0.774, adj=0.026, (0 split)
+      Amount_owe4  < 1150878     to the left,  agree=0.774, adj=0.026, (0 split)
+
+Node number 12395: 148 observations,    complexity param=0.001037037
+  predicted class=N  expected loss=0.3108108  P(node) =0.001950011
+    class counts:   102    46
+   probabilities: 0.689 0.311 
+  left son=24790 (120 obs) right son=24791 (28 obs)
+  Primary splits:
+      DEFAULT_DATE         < 16230       to the right, improve=6.064929, (0 missing)
+      Amount_Owe_Momentum4 < -1067       to the right, improve=4.953081, (0 missing)
+      DATE_LAST_PAYMENT    < 16158.5     to the right, improve=4.832884, (0 missing)
+      Num_HL               < 0.5         to the left,  improve=3.159791, (0 missing)
+      Num_A_PL             < 1.5         to the right, improve=3.117164, (0 missing)
+  Surrogate splits:
+      DATE_LAST_PAYMENT < 16237.5     to the right, agree=0.905, adj=0.500, (0 split)
+      stdUtil1to6       < 0.002041241 to the right, agree=0.858, adj=0.250, (0 split)
+      Loan_amount1      < 9272        to the right, agree=0.838, adj=0.143, (0 split)
+      Loan_amount2      < 9272        to the right, agree=0.838, adj=0.143, (0 split)
+      Loan_amount3      < 9272        to the right, agree=0.838, adj=0.143, (0 split)
+
+Node number 12698: 56 observations
+  predicted class=N  expected loss=0.2678571  P(node) =0.0007378421
+    class counts:    41    15
+   probabilities: 0.732 0.268 
+
+Node number 12699: 26 observations,    complexity param=0.001111111
+  predicted class=Y  expected loss=0.4230769  P(node) =0.0003425695
+    class counts:    11    15
+   probabilities: 0.423 0.577 
+  left son=25398 (9 obs) right son=25399 (17 obs)
+  Primary splits:
+      Loan_amount1 < 379007.5    to the right, improve=3.46355, (0 missing)
+      Loan_amount2 < 379007.5    to the right, improve=3.46355, (0 missing)
+      Loan_amount3 < 379007.5    to the right, improve=3.46355, (0 missing)
+      Loan_amount4 < 379007.5    to the right, improve=3.46355, (0 missing)
+      Loan_amount5 < 379007.5    to the right, improve=3.46355, (0 missing)
+  Surrogate splits:
+      Loan_amount2 < 379007.5    to the right, agree=1, adj=1, (0 split)
+      Loan_amount3 < 379007.5    to the right, agree=1, adj=1, (0 split)
+      Loan_amount4 < 379007.5    to the right, agree=1, adj=1, (0 split)
+      Loan_amount5 < 379007.5    to the right, agree=1, adj=1, (0 split)
+      Loan_amount6 < 379007.5    to the right, agree=1, adj=1, (0 split)
+
+Node number 12778: 22 observations
+  predicted class=N  expected loss=0.2272727  P(node) =0.0002898665
+    class counts:    17     5
+   probabilities: 0.773 0.227 
+
+Node number 12779: 58 observations,    complexity param=0.001790123
+  predicted class=Y  expected loss=0.4310345  P(node) =0.0007641936
+    class counts:    25    33
+   probabilities: 0.431 0.569 
+  left son=25558 (12 obs) right son=25559 (46 obs)
+  Primary splits:
+      Num_OTH_HP            < 0.5         to the right, improve=4.897551, (0 missing)
+      Amount_Owe_Momentum3  < -2624.5     to the left,  improve=4.069166, (0 missing)
+      Num_A_OTH_HP          < 0.5         to the right, improve=4.069166, (0 missing)
+      stdUtil1to6           < 0.03661625  to the right, improve=3.658276, (0 missing)
+      Utilization_Momentum3 < -0.025      to the left,  improve=3.289943, (0 missing)
+  Surrogate splits:
+      Num_A_OTH_HP < 0.5         to the right, agree=0.983, adj=0.917, (0 split)
+      ACCOUNT_TYPE splits as  -RR---LRR--, agree=0.879, adj=0.417, (0 split)
+      stdUtil1to6  < 0.04564974  to the right, agree=0.845, adj=0.250, (0 split)
+      Utilization1 < 0.185       to the left,  agree=0.828, adj=0.167, (0 split)
+      Utilization2 < 0.245       to the left,  agree=0.828, adj=0.167, (0 split)
+
+Node number 20922: 11 observations
+  predicted class=N  expected loss=0  P(node) =0.0001449333
+    class counts:    11     0
+   probabilities: 1.000 0.000 
+
+Node number 20923: 14 observations
+  predicted class=Y  expected loss=0  P(node) =0.0001844605
+    class counts:     0    14
+   probabilities: 0.000 1.000 
+
+Node number 24788: 129 observations
+  predicted class=N  expected loss=0.1317829  P(node) =0.001699672
+    class counts:   112    17
+   probabilities: 0.868 0.132 
+
+Node number 24789: 39 observations,    complexity param=0.001037037
+  predicted class=N  expected loss=0.3333333  P(node) =0.0005138543
+    class counts:    26    13
+   probabilities: 0.667 0.333 
+  left son=49578 (31 obs) right son=49579 (8 obs)
+  Primary splits:
+      ACCOUNT_STATUS  splits as  L--RL-R-, improve=8.946237, (0 missing)
+      Number_of_3plus < 1.5         to the left,  improve=6.018519, (0 missing)
+      Utilization5    < 1.05        to the left,  improve=5.905914, (0 missing)
+      Utilization6    < 1.055       to the left,  improve=5.905914, (0 missing)
+      Ever60plus_5MTH splits as  LR, improve=5.025641, (0 missing)
+  Surrogate splits:
+      Utilization5      < 1.05        to the left,  agree=0.949, adj=0.750, (0 split)
+      Utilization6      < 1.055       to the left,  agree=0.949, adj=0.750, (0 split)
+      DATE_LAST_PAYMENT < 16163       to the right, agree=0.923, adj=0.625, (0 split)
+      DEFAULT_DATE      < -5083       to the left,  agree=0.923, adj=0.625, (0 split)
+      AMOUNT_PAST_DUE   < 6384        to the left,  agree=0.923, adj=0.625, (0 split)
+
+Node number 24790: 120 observations,    complexity param=0.001037037
+  predicted class=N  expected loss=0.2416667  P(node) =0.00158109
+    class counts:    91    29
+   probabilities: 0.758 0.242 
+  left son=49580 (70 obs) right son=49581 (50 obs)
+  Primary splits:
+      Amount_Owe_Momentum4  < -1273.5     to the right, improve=9.737619, (0 missing)
+      Amount_Owe_Momentum5  < -1752       to the right, improve=5.921111, (0 missing)
+      Utilization_Momentum4 < -0.005      to the right, improve=5.426047, (0 missing)
+      Amount_Owe_Momentum3  < -939        to the right, improve=4.381688, (0 missing)
+      Loan_amount1          < 67500       to the left,  improve=3.285892, (0 missing)
+  Surrogate splits:
+      Utilization_Momentum4 < -0.005      to the right, agree=0.867, adj=0.68, (0 split)
+      Amount_Owe_Momentum5  < -1332       to the right, agree=0.750, adj=0.40, (0 split)
+      ACCOUNT_TYPE          splits as  -LR---RLR--, agree=0.733, adj=0.36, (0 split)
+      Utilization2          < 0.845       to the right, agree=0.717, adj=0.32, (0 split)
+      Utilization4          < 0.935       to the right, agree=0.717, adj=0.32, (0 split)
+
+Node number 24791: 28 observations,    complexity param=0.001037037
+  predicted class=Y  expected loss=0.3928571  P(node) =0.000368921
+    class counts:    11    17
+   probabilities: 0.393 0.607 
+  left son=49582 (12 obs) right son=49583 (16 obs)
+  Primary splits:
+      DATE_LAST_PAYMENT    < 16158.5     to the right, improve=3.148810, (0 missing)
+      Amount_Owe_Momentum2 < 594         to the left,  improve=2.148810, (0 missing)
+      Amount_owe5          < 73971       to the right, improve=1.928571, (0 missing)
+      Amount_Owe_Momentum3 < 594         to the left,  improve=1.275092, (0 missing)
+      Amount_Owe_Momentum5 < 598         to the left,  improve=1.275092, (0 missing)
+  Surrogate splits:
+      nloans          < 4.5         to the left,  agree=0.857, adj=0.667, (0 split)
+      AMOUNT_PAST_DUE < 31061.5     to the left,  agree=0.821, adj=0.583, (0 split)
+      Utilization1    < 0.945       to the left,  agree=0.821, adj=0.583, (0 split)
+      DEFAULT_DATE    < 16095.5     to the right, agree=0.786, adj=0.500, (0 split)
+      Utilization2    < 0.94        to the left,  agree=0.786, adj=0.500, (0 split)
+
+Node number 25398: 9 observations
+  predicted class=N  expected loss=0.2222222  P(node) =0.0001185818
+    class counts:     7     2
+   probabilities: 0.778 0.222 
+
+Node number 25399: 17 observations
+  predicted class=Y  expected loss=0.2352941  P(node) =0.0002239878
+    class counts:     4    13
+   probabilities: 0.235 0.765 
+
+Node number 25558: 12 observations
+  predicted class=N  expected loss=0.1666667  P(node) =0.000158109
+    class counts:    10     2
+   probabilities: 0.833 0.167 
+
+Node number 25559: 46 observations,    complexity param=0.001481481
+  predicted class=Y  expected loss=0.326087  P(node) =0.0006060846
+    class counts:    15    31
+   probabilities: 0.326 0.674 
+  left son=51118 (8 obs) right son=51119 (38 obs)
+  Primary splits:
+      nactiveloans         < 7.5         to the right, improve=3.480549, (0 missing)
+      Number_of_1          < 1.5         to the right, improve=2.595770, (0 missing)
+      DATE_LAST_PAYMENT    < 16619.5     to the right, improve=2.595559, (0 missing)
+      Amount_Owe_Momentum3 < -2624.5     to the left,  improve=2.488454, (0 missing)
+      Num_HL               < 4.5         to the right, improve=2.488454, (0 missing)
+  Surrogate splits:
+      Num_A_HL             < 3.5         to the right, agree=0.891, adj=0.375, (0 split)
+      Amount_Owe_Momentum3 < -4161       to the left,  agree=0.870, adj=0.250, (0 split)
+      Num_HL               < 5.5         to the right, agree=0.870, adj=0.250, (0 split)
+      Num_A_CC             < 1.5         to the right, agree=0.870, adj=0.250, (0 split)
+
+Node number 49578: 31 observations
+  predicted class=N  expected loss=0.1612903  P(node) =0.0004084483
+    class counts:    26     5
+   probabilities: 0.839 0.161 
+
+Node number 49579: 8 observations
+  predicted class=Y  expected loss=0  P(node) =0.000105406
+    class counts:     0     8
+   probabilities: 0.000 1.000 
+
+Node number 49580: 70 observations
+  predicted class=N  expected loss=0.07142857  P(node) =0.0009223026
+    class counts:    65     5
+   probabilities: 0.929 0.071 
+
+Node number 49581: 50 observations,    complexity param=0.001037037
+  predicted class=N  expected loss=0.48  P(node) =0.0006587876
+    class counts:    26    24
+   probabilities: 0.520 0.480 
+  left son=99162 (11 obs) right son=99163 (39 obs)
+  Primary splits:
+      Amount_owe1 < 561809.5    to the right, improve=2.507786, (0 missing)
+      Amount_owe2 < 558769      to the right, improve=2.507786, (0 missing)
+      Amount_owe3 < 571260      to the right, improve=2.507786, (0 missing)
+      Amount_owe4 < 580097      to the right, improve=2.507786, (0 missing)
+      Amount_owe5 < 588934      to the right, improve=2.507786, (0 missing)
+  Surrogate splits:
+      Amount_owe2 < 558769      to the right, agree=1, adj=1, (0 split)
+      Amount_owe3 < 571260      to the right, agree=1, adj=1, (0 split)
+      Amount_owe4 < 580097      to the right, agree=1, adj=1, (0 split)
+      Amount_owe5 < 588934      to the right, agree=1, adj=1, (0 split)
+      Amount_owe6 < 597771      to the right, agree=1, adj=1, (0 split)
+
+Node number 49582: 12 observations
+  predicted class=N  expected loss=0.3333333  P(node) =0.000158109
+    class counts:     8     4
+   probabilities: 0.667 0.333 
+
+Node number 49583: 16 observations
+  predicted class=Y  expected loss=0.1875  P(node) =0.000210812
+    class counts:     3    13
+   probabilities: 0.188 0.812 
+
+Node number 51118: 8 observations
+  predicted class=N  expected loss=0.25  P(node) =0.000105406
+    class counts:     6     2
+   probabilities: 0.750 0.250 
+
+Node number 51119: 38 observations
+  predicted class=Y  expected loss=0.2368421  P(node) =0.0005006786
+    class counts:     9    29
+   probabilities: 0.237 0.763 
+
+Node number 99162: 11 observations
+  predicted class=N  expected loss=0.1818182  P(node) =0.0001449333
+    class counts:     9     2
+   probabilities: 0.818 0.182 
+
+Node number 99163: 39 observations,    complexity param=0.001037037
+  predicted class=Y  expected loss=0.4358974  P(node) =0.0005138543
+    class counts:    17    22
+   probabilities: 0.436 0.564 
+  left son=198326 (20 obs) right son=198327 (19 obs)
+  Primary splits:
+      Amount_Owe_Momentum5 < -2264.5     to the right, improve=3.763698, (0 missing)
+      nactiveloans         < 1.5         to the right, improve=3.102564, (0 missing)
+      Utilization2         < 0.795       to the left,  improve=2.837382, (0 missing)
+      Amount_Owe_Momentum3 < -2323.5     to the right, improve=2.512821, (0 missing)
+      Utilization3         < 0.825       to the left,  improve=2.211066, (0 missing)
+  Surrogate splits:
+      INSTALLMENT_AMOUNT < 2329        to the left,  agree=0.821, adj=0.632, (0 split)
+      Loan_amount1       < 79366       to the left,  agree=0.769, adj=0.526, (0 split)
+      Loan_amount2       < 79366       to the left,  agree=0.769, adj=0.526, (0 split)
+      Loan_amount3       < 79366       to the left,  agree=0.769, adj=0.526, (0 split)
+      Loan_amount4       < 79366       to the left,  agree=0.769, adj=0.526, (0 split)
+
+Node number 198326: 20 observations
+  predicted class=N  expected loss=0.35  P(node) =0.000263515
+    class counts:    13     7
+   probabilities: 0.650 0.350 
+
+Node number 198327: 19 observations
+  predicted class=Y  expected loss=0.2105263  P(node) =0.0002503393
+    class counts:     4    15
+   probabilities: 0.211 0.789 
+

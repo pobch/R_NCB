@@ -1,7 +1,7 @@
 library(combinat)
 library(dplyr)
 
-# choose max gini !!!!
+# ------- create functions: (choose max gini, not min gini na ja)
 gini_index = function(classes,splitvar = NULL) {
   if (is.null(splitvar)) {
     base_prob = table(classes)/length(classes)
@@ -19,29 +19,7 @@ gini_index = function(classes,splitvar = NULL) {
   return(sum(base_prob * c(No_Node_Gini,Yes_Node_Gini)))
 }
 
-#------------------ test : import
-setwd('C:\\My Jobs\\gini')
-#setwd('D:\\R_codes\\Mortgage')
-df = read.csv("data_banknote_authentication.txt", header = FALSE) #df$V5 is the target variable
-
-#make up data:
-df$V4.1 = sample(c('Y','N','O','P','U','U','Y'), 1372, replace = T)
-df$V4.2 = sample(c('Y','N','N'), 1372, replace = T)
-v5 = df$V5
-df$V5 = NULL
-df$V5 = v5
-
-#-------THE ANSWER (USE AS CONFIRMATION)---------------------------
-
-gini_index(df$V5, df$V1 < 1.7)
-
-# find best gini index of V1
-for(i in 1:nrow(df)){
-  df$V1gini[i] = gini_index(df$V5, df$V1 < df$V1[i])
-}
-which.max(df$V1gini) # ANS:284
-
-#-------PROCESSING-----------------------
+# for numeric independent var:
 all_gini_num = function(df, target_col_name, features_col_range) {
   for(i in features_col_range){
     if(is.numeric(df[[i]])){
@@ -54,7 +32,7 @@ all_gini_num = function(df, target_col_name, features_col_range) {
   return(df)
 }
 
-
+# for categorical independent var:
 all_gini_cat = function(df, target_col_name, features_col_range){
   cat.gini = data.frame(feature.name = character(),
                         group1 = character(),
@@ -86,7 +64,20 @@ all_gini_cat = function(df, target_col_name, features_col_range){
   return(cat.gini)
 }
 
-# ----------------- TEST :
+
+#------------------ test : import
+#setwd('C:\\My Jobs\\gini')
+setwd('D:\\R_codes\\Mortgage')
+df = read.csv("data_banknote_authentication.txt", header = FALSE) #df$V5 is the target variable
+
+# make fake data:
+df$V4.1 = sample(c('Y','N','O','P','U','U','Y'), 1372, replace = T)
+df$V4.2 = sample(c('Y','N','N'), 1372, replace = T)
+v5 = df$V5
+df$V5 = NULL
+df$V5 = v5
+
+# TEST my functions :
 df2 = all_gini_num(df, 'V5', 1:5)
 df3 = all_gini_cat(df, 'V5', 5:6)
 
@@ -96,7 +87,19 @@ for(i in 7:11){
 df3 %>% group_by(feature.name) %>% mutate(the.rank = rank(-gini.score, ties.method = 'random')) %>%  filter(the.rank == 1) %>% select(-the.rank)
 
 
-#---------------------------------------
+#-------THE ANSWER (for verification):
+
+gini_index(df$V5, df$V1 < 1.7)
+
+# find best gini index of V1
+for(i in 1:nrow(df)){
+  df$V1gini[i] = gini_index(df$V5, df$V1 < df$V1[i])
+}
+which.max(df$V1gini) # ANS:284
+
+
+
+#-------- build tree from rpart:
 library(rpart)
 library(rpart.plot)
 mod1 = rpart(V5 ~ V4.1 + V4.2, data = df, method ='class', cp = 0.001)

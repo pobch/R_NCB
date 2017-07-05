@@ -37,8 +37,9 @@ df = read_csv("P_loan_ALL_18MTH.csv",
 
 glimpse(df)
 
+# ---------------------------------------------------------------------------------------
 
-df = read_delim('NIDA_TXT_MTH_1505.csv', delim = '|', 
+df1510 = read_delim('D:\\Datasets\\Extracted\\NIDA_TXT_MTH_1510.csv', delim = '|', 
                 col_types = cols(
                   .default = col_character(),
                   SYSTEM_ID = col_integer(),

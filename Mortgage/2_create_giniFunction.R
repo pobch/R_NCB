@@ -19,17 +19,39 @@ gini_index = function(classes,splitvar = NULL) {
   return(sum(base_prob * c(No_Node_Gini,Yes_Node_Gini)))
 }
 
-# for numeric independent var:
+# for numeric and Date independent var: (Date origin is '1970-01-01')
 all_gini_num = function(df, target_col_name, features_col_range) {
+  # num.gini = data.frame(feature.name = character(),
+  #                       threshold = numeric(),
+  #                       gini.score = numeric(),
+  #                       stringsAsFactors = F)
+  num.gini = data.frame()
   for(i in features_col_range){
     if(is.numeric(df[[i]])){
       print(paste0('number of NA in ', names(df)[i], ' = ', sum(is.na(df[i]))))
-      df[paste0(names(df)[i], '_gini')] = apply(df, 1, function(x) { gini_index(df[[target_col_name]], df[i] < x[i] ) })
+      all.threshold = unique(df[[i]])
+      score = sapply(all.threshold, function(x) { gini_index(df[[target_col_name]], df[[i]] < x ) })
+      tmp = data.frame(feature.name = rep(names(df)[i], length(all.threshold)),
+                       threshold.num = all.threshold,
+                       threshold.date = as.Date(NA),
+                       gini.score = score,
+                       stringsAsFactors = F)
+      num.gini = rbind(num.gini, tmp)
+    } else if(class(df[[i]]) == 'Date') {
+      print(paste0('number of NA in ', names(df)[i], ' = ', sum(is.na(df[i]))))
+      all.threshold = unique(df[[i]])
+      score = sapply(all.threshold, function(x) { gini_index(df[[target_col_name]], as.numeric(df[[i]]) < as.numeric(x) ) })
+      tmp = data.frame(feature.name = rep(names(df)[i], length(all.threshold)),
+                       threshold.date = all.threshold,
+                       threshold.num = as.numeric(NA),
+                       gini.score = score,
+                       stringsAsFactors = F)
+      num.gini = rbind(num.gini, tmp)
     } else {
-      stop(paste0(names(df)[i],' is not numeric'))
+      stop(paste0(names(df)[i],' is not numeric or Date'))
     }
   }
-  return(df)
+  return(num.gini)
 }
 
 # for categorical independent var:
@@ -77,26 +99,22 @@ v5 = df$V5
 df$V5 = NULL
 df$V5 = v5
 
-# TEST my functions :
+# TEST my functions : ######## HOW TO USE THE FUNCTIONS ######
 df2 = all_gini_num(df, 'V5', 1:5)
 df3 = all_gini_cat(df, 'V5', 5:6)
 
-for(i in 7:11){
-  print(max(df2[i], na.rm = T))
-}
-df3 %>% group_by(feature.name) %>% mutate(the.rank = rank(-gini.score, ties.method = 'random')) %>%  filter(the.rank == 1) %>% select(-the.rank)
+df3 %>% 
+  group_by(feature.name) %>% 
+  mutate(the.rank = rank(-gini.score, ties.method = 'random')) %>%  
+  filter(the.rank == 1) %>% 
+  select(-the.rank)
 
 
-#-------THE ANSWER (for verification):
+#-------How to use gini_index function:
 
+# calculate gini for threshold = 1.7:
 gini_index(df$V5, df$V1 < 1.7)
-
-# find best gini index of V1
-for(i in 1:nrow(df)){
-  df$V1gini[i] = gini_index(df$V5, df$V1 < df$V1[i])
-}
-which.max(df$V1gini) # ANS:284
-
+# find max gini of all threshold
 
 
 #-------- build tree from rpart:

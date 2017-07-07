@@ -149,7 +149,7 @@ sapply(df, function(x) {sum(is.na(x))})
 colSums(is.na(df))
 
 
-#------------------------ Replace missing value:
+#------------------------ Replace missing value (Pob's version):
 df$INSTALLMENT_FREQUENCY = ifelse(is.na(df$INSTALLMENT_FREQUENCY) & df$ACCOUNT_TYPE == '04',
                                   '0',
                                   ifelse(is.na(df$INSTALLMENT_FREQUENCY) & df$ACCOUNT_TYPE == '22',
@@ -372,6 +372,230 @@ df$stdUtil1to6 = ifelse(is.na(df$stdUtil1to6),
 
 #---------------------------------------------------------
 
+
+#------------------------ Replace missing value (Top's version):
+df$INSTALLMENT_FREQUENCY = ifelse(is.na(df$INSTALLMENT_FREQUENCY) & df$ACCOUNT_TYPE == '04',
+                                  '0',
+                                  ifelse(is.na(df$INSTALLMENT_FREQUENCY) & df$ACCOUNT_TYPE == '22',
+                                         '3',
+                                         df$INSTALLMENT_FREQUENCY)
+)
+df$TYPE_OF_CREDIT_CARD = ifelse(is.na(df$TYPE_OF_CREDIT_CARD),
+                                '0',
+                                df$TYPE_OF_CREDIT_CARD)
+df$MINIMUM_PERCENT_PAYMENT = ifelse(is.na(df$MINIMUM_PERCENT_PAYMENT),
+                                    0,
+                                    df$MINIMUM_PERCENT_PAYMENT)
+df$is.DeLoOw2.NA = ifelse(is.na(df$Delay_Payment_code2),
+                          'Yes',
+                          'No') 
+df$is.DeLoOw3.NA = ifelse(is.na(df$Delay_Payment_code3),
+                          'Yes',
+                          'No') 
+df$is.DeLoOw4.NA = ifelse(is.na(df$Delay_Payment_code4),
+                          'Yes',
+                          'No') 
+df$is.DeLoOw5.NA = ifelse(is.na(df$Delay_Payment_code5),
+                          'Yes',
+                          'No') 
+df$is.DeLoOw6.NA = ifelse(is.na(df$Delay_Payment_code6),
+                          'Yes',
+                          'No')   
+
+df$Delay_Payment_code2 = ifelse(is.na(df$Delay_Payment_code2),
+                                '-1',
+                                df$Delay_Payment_code2)
+df$Delay_Payment_code3 = ifelse(is.na(df$Delay_Payment_code3),
+                                '-1',
+                                df$Delay_Payment_code3)
+df$Delay_Payment_code4 = ifelse(is.na(df$Delay_Payment_code4),
+                                '-1',
+                                df$Delay_Payment_code4)
+df$Delay_Payment_code5 = ifelse(is.na(df$Delay_Payment_code5),
+                                '-1',
+                                df$Delay_Payment_code5)
+df$Delay_Payment_code6 = ifelse(is.na(df$Delay_Payment_code6),
+                                '-1',
+                                df$Delay_Payment_code6)
+df$Loan_amount2 = ifelse(is.na(df$Loan_amount2),
+                         -9999999,
+                         df$Loan_amount2)
+df$Loan_amount3 = ifelse(is.na(df$Loan_amount3),
+                         -9999999,
+                         df$Loan_amount3)
+df$Loan_amount4 = ifelse(is.na(df$Loan_amount4),
+                         -9999999,
+                         df$Loan_amount4)
+df$Loan_amount5 = ifelse(is.na(df$Loan_amount5),
+                         -9999999,
+                         df$Loan_amount5)
+df$Loan_amount6 = ifelse(is.na(df$Loan_amount6),
+                         -9999999,
+                         df$Loan_amount6)
+df$Amount_owe2 = ifelse(is.na(df$Amount_owe2),
+                        -9999999,
+                        df$Amount_owe2)
+df$Amount_owe3 = ifelse(is.na(df$Amount_owe3),
+                        -9999999,
+                        df$Amount_owe3)
+df$Amount_owe4 = ifelse(is.na(df$Amount_owe4),
+                        -9999999,
+                        df$Amount_owe4)
+df$Amount_owe5 = ifelse(is.na(df$Amount_owe5),
+                        -9999999,
+                        df$Amount_owe5)
+df$Amount_owe6 = ifelse(is.na(df$Amount_owe6),
+                        -9999999,
+                        df$Amount_owe6)
+
+df$AVG_Utilization_3MTH = ifelse(is.na(df$AVG_Utilization_3MTH),
+                                 -9999999,
+                                 df$AVG_Utilization_3MTH)
+df$AVG_Utilization_6MTH = ifelse(is.na(df$AVG_Utilization_6MTH),
+                                 -9999999,
+                                 df$AVG_Utilization_6MTH)
+df$is.Util1.NA = ifelse(is.na(df$Utilization1),
+                        'Yes',
+                        'No')
+df$is.Util2.NA = ifelse(is.na(df$Utilization2),
+                        'Yes',
+                        'No')
+df$is.Util3.NA = ifelse(is.na(df$Utilization3),
+                        'Yes',
+                        'No')
+df$is.Util4.NA = ifelse(is.na(df$Utilization4),
+                        'Yes',
+                        'No')
+df$is.Util5.NA = ifelse(is.na(df$Utilization5),
+                        'Yes',
+                        'No')
+df$is.Util6.NA = ifelse(is.na(df$Utilization6),
+                        'Yes',
+                        'No')
+
+df$Utilization1 = ifelse(is.na(df$Utilization1),
+                         -9999999,
+                         df$Utilization1)
+df$Utilization2 = ifelse(is.na(df$Utilization2),
+                         -9999999,
+                         df$Utilization2)
+df$Utilization3 = ifelse(is.na(df$Utilization3),
+                         -9999999,
+                         df$Utilization3)
+df$Utilization4 = ifelse(is.na(df$Utilization4),
+                         -9999999,
+                         df$Utilization4)
+df$Utilization5 = ifelse(is.na(df$Utilization5),
+                         -9999999,
+                         df$Utilization5)
+df$Utilization6 = ifelse(is.na(df$Utilization6),
+                         -9999999,
+                         df$Utilization6)
+df$is.OweMomen1.NA = ifelse(is.na(df$Amount_Owe_Momentum1),
+                            'Yes',
+                            'No')
+df$is.OweMomen2.NA = ifelse(is.na(df$Amount_Owe_Momentum2),
+                            'Yes',
+                            'No')
+df$is.OweMomen3.NA = ifelse(is.na(df$Amount_Owe_Momentum3),
+                            'Yes',
+                            'No')
+df$is.OweMomen4.NA = ifelse(is.na(df$Amount_Owe_Momentum4),
+                            'Yes',
+                            'No')
+df$is.OweMomen5.NA = ifelse(is.na(df$Amount_Owe_Momentum5),
+                            'Yes',
+                            'No')
+df$Amount_Owe_Momentum1 = ifelse(is.na(df$Amount_Owe_Momentum1),
+                                 -9999999,
+                                 df$Amount_Owe_Momentum1)
+df$Amount_Owe_Momentum2 = ifelse(is.na(df$Amount_Owe_Momentum2),
+                                 -9999999,
+                                 df$Amount_Owe_Momentum2)
+df$Amount_Owe_Momentum3 = ifelse(is.na(df$Amount_Owe_Momentum3),
+                                 -9999999,
+                                 df$Amount_Owe_Momentum3)
+df$Amount_Owe_Momentum4 = ifelse(is.na(df$Amount_Owe_Momentum4),
+                                 -9999999,
+                                 df$Amount_Owe_Momentum4)
+df$Amount_Owe_Momentum5 = ifelse(is.na(df$Amount_Owe_Momentum5),
+                                 -9999999,
+                                 df$Amount_Owe_Momentum5)
+df$is.UtilMomen1.NA = ifelse(is.na(df$Utilization_Momentum1),
+                             'Yes',
+                             'No')
+df$is.UtilMomen2.NA = ifelse(is.na(df$Utilization_Momentum2),
+                             'Yes',
+                             'No')
+df$is.UtilMomen3.NA = ifelse(is.na(df$Utilization_Momentum3),
+                             'Yes',
+                             'No')
+df$is.UtilMomen4.NA = ifelse(is.na(df$Utilization_Momentum4),
+                             'Yes',
+                             'No')
+df$is.UtilMomen5.NA = ifelse(is.na(df$Utilization_Momentum5),
+                             'Yes',
+                             'No')
+df$Utilization_Momentum1 = ifelse(is.na(df$Utilization_Momentum1),
+                                  -9999999,
+                                  df$Utilization_Momentum1)
+df$Utilization_Momentum2 = ifelse(is.na(df$Utilization_Momentum2),
+                                  -9999999,
+                                  df$Utilization_Momentum2)
+df$Utilization_Momentum3 = ifelse(is.na(df$Utilization_Momentum3),
+                                  -9999999,
+                                  df$Utilization_Momentum3)
+df$Utilization_Momentum4 = ifelse(is.na(df$Utilization_Momentum4),
+                                  -9999999,
+                                  df$Utilization_Momentum4)
+df$Utilization_Momentum5 = ifelse(is.na(df$Utilization_Momentum5),
+                                  -9999999,
+                                  df$Utilization_Momentum5)
+df$is.Momentum2.NA = ifelse(is.na(df$Momentum2),
+                            'Yes',
+                            'No')
+df$is.Momentum3.NA = ifelse(is.na(df$Momentum3),
+                            'Yes',
+                            'No')
+df$is.Momentum4.NA = ifelse(is.na(df$Momentum4),
+                            'Yes',
+                            'No')
+df$is.Momentum5.NA = ifelse(is.na(df$Momentum5),
+                            'Yes',
+                            'No')
+df$Momentum2 = ifelse(is.na(df$Momentum2),
+                      -9999999,
+                      df$Momentum2)
+df$Momentum3 = ifelse(is.na(df$Momentum3),
+                      -9999999,
+                      df$Momentum3)
+df$Momentum4 = ifelse(is.na(df$Momentum4),
+                      -9999999,
+                      df$Momentum4)
+df$Momentum5 = ifelse(is.na(df$Momentum5),
+                      -9999999,
+                      df$Momentum5)
+df$is.stdUtil123.NA = ifelse(is.na(df$stdUtil123),
+                             'Yes',
+                             'No')
+df$is.stdUtil456.NA = ifelse(is.na(df$stdUtil456),
+                             'Yes',
+                             'No')
+df$is.stdUtil1to6.NA = ifelse(is.na(df$stdUtil1to6),
+                              'Yes',
+                              'No')
+df$stdUtil123 = ifelse(is.na(df$stdUtil123),
+                       -9999999,
+                       df$stdUtil123)
+df$stdUtil456 = ifelse(is.na(df$stdUtil456),
+                       -9999999,
+                       df$stdUtil456)
+df$stdUtil1to6 = ifelse(is.na(df$stdUtil1to6),
+                        -9999999,
+                        df$stdUtil1to6)
+
+#---------------------------------------------------------
+
 # list all column names:
 dput(names(df))
 
@@ -474,7 +698,7 @@ subdf_od = df[which(df$ACCOUNT_TYPE == '04'), c(
             
             "Ever30plus_n12MTH")]
 
-#---------------------- split train/test:
+#---------------------- split train/test for CC loan:
 df2 = select(subdf, -SYSTEM_ID, -TRADE_SERIAL, -CUSTOMER_TYPE, -All_Payment_code)
 
 subdf_cc = df2 %>% 
@@ -515,6 +739,14 @@ plot(perf, colorize = T, print.cutoffs.at = seq(0,1,0.01), text.adj = c(0,1))
 
 # ----------------------------------------------------------------------------------------
 
+
+
+
+
+
+
+# ----- HOW TO DO Cross Validate & CART:
+
 df2 = select(subdf, -SYSTEM_ID, -TRADE_SERIAL, -CUSTOMER_TYPE, -All_Payment_code)
 # df3 = na.omit(df2)
 # df4 = lapply(df3, function(x) { if (class(x) == 'character') {x = as.factor(x)} else { x = x }})
@@ -522,9 +754,6 @@ tr.control = trainControl(method = 'cv', number = 10)
 cp.grid = expand.grid(.cp = seq(0, 0.002, 0.0001))
 train(Ever30plus_n12MTH ~ ., data = df2, method = 'rpart', trControl = tr.control, tuneGrid = cp.grid)
 mod1 = rpart(Ever30plus_n12MTH ~ ., data = df2, method = 'class', cp =0.001)
-
-
-
 
 
 

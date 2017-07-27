@@ -27,6 +27,7 @@ all_gini_num = function(df, target_col_name, features_col_range) {
   #                       stringsAsFactors = F)
   num.gini = data.frame()
   for(i in features_col_range){
+    pt = proc.time()
     if(is.numeric(df[[i]])){
       print(paste0('number of NA in ', names(df)[i], ' = ', sum(is.na(df[i]))))
       all.threshold = unique(df[[i]])
@@ -50,6 +51,7 @@ all_gini_num = function(df, target_col_name, features_col_range) {
     } else {
       stop(paste0(names(df)[i],' is not numeric or Date'))
     }
+    print(proc.time() - pt)
   }
   return(num.gini)
 }
@@ -62,6 +64,7 @@ all_gini_cat = function(df, target_col_name, features_col_range){
                         gini.score = numeric(),
                         stringsAsFactors = F)
   for(i in features_col_range){
+    pt = proc.time()
     if(is.character(df[[i]]) | is.factor(df[[i]])){
       print(paste0('number of NA in ', names(df)[i], ' = ', sum(is.na(df[i]))))
       values = unique(df[[i]])
@@ -82,6 +85,7 @@ all_gini_cat = function(df, target_col_name, features_col_range){
     } else {
       stop(paste0(names(df)[i],' is not character or factor'))
     }
+    print(proc.time() - pt)
   }
   return(cat.gini)
 }

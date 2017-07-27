@@ -2,11 +2,18 @@ library(dplyr)
 library(GenSA)
 
 
+
+
+del_cols = c('DATE_ACCOUNT_OPENED',
+             'DATE_LAST_PAYMENT')
+
 gini_index2 = function(cutoff, classes, var ) {
-  splitvar = var < cutoff
-  if (is.null(splitvar)) {
-    base_prob = table(classes)/length(classes)
-    return(sum(base_prob**2))
+  if(is.numeric(var) | class(var) == 'Date'){
+    splitvar = var < cutoff  
+  } else if(is.character(var) | is.factor(var)){
+    splitvar = var %in% cutoff
+  } else {
+    stop('var is not numeric/Date/char or factor')
   }
   if(length(table(splitvar)) < 2){
     return(0)
@@ -19,6 +26,104 @@ gini_index2 = function(cutoff, classes, var ) {
   # weight gini by base_prob:
   return(-sum(base_prob * c(No_Node_Gini,Yes_Node_Gini)))
 }
+
+
+all_gini = function(df, target_col_name, features_cols) {
+  num.gini = data.frame()
+  cat.gini = data.frame()
+  cols = c('AMOUNT_PAST_DUE',
+           'Loan_amount1',
+           'Loan_amount2',
+           'Loan_amount3',
+           'Loan_amount4',
+           'Loan_amount5',
+           'Loan_amount6',
+           'Amount_owe1',
+           'Amount_owe2',
+           'Amount_owe3',
+           'Amount_owe4',
+           'Amount_owe5',
+           'Amount_owe6',
+           'Amount_Owe_Momentum1',
+           'Amount_Owe_Momentum2',
+           'Amount_Owe_Momentum3',
+           'Amount_Owe_Momentum4',
+           'Amount_Owe_Momentum5',
+           'stdUtil123',
+           'stdUtil456',
+           'stdUtil1to6')
+  for(i in features_cols){
+    pt = proc.time()
+    
+    if(names(df)[i] %in% cols){
+      
+    }
+    
+    if(is.numeric(df[[i]]) | class(df[[i]]) == 'Date'){
+      print(paste0('number of NA in ', names(df)[i], ' = ', sum(is.na(df[i]))))
+      
+      
+      all.threshold = unique(df[[i]])
+      score = sapply(all.threshold, function(x) { gini_index(df[[target_col_name]], df[[i]] < x ) })
+      tmp = data.frame(feature.name = rep(names(df)[i], length(all.threshold)),
+                       threshold.num = all.threshold,
+                       threshold.date = as.Date(NA),
+                       gini.score = score,
+                       stringsAsFactors = F)
+      num.gini = rbind(num.gini, tmp)
+    } else if(class(df[[i]]) == 'Date') {
+      print(paste0('number of NA in ', names(df)[i], ' = ', sum(is.na(df[i]))))
+      all.threshold = unique(df[[i]])
+      score = sapply(all.threshold, function(x) { gini_index(df[[target_col_name]], as.numeric(df[[i]]) < as.numeric(x) ) })
+      tmp = data.frame(feature.name = rep(names(df)[i], length(all.threshold)),
+                       threshold.date = all.threshold,
+                       threshold.num = as.numeric(NA),
+                       gini.score = score,
+                       stringsAsFactors = F)
+      num.gini = rbind(num.gini, tmp)
+    } else {
+      stop(paste0(names(df)[i],' is not numeric or Date'))
+    }
+    print(proc.time() - pt)
+  }
+  return(num.gini)
+}
+
+# for categorical independent var:
+all_gini_cat = function(df, target_col_name, features_col_range){
+  cat.gini = data.frame(feature.name = character(),
+                        group1 = character(),
+                        group2 = character(),
+                        gini.score = numeric(),
+                        stringsAsFactors = F)
+  for(i in features_col_range){
+    pt = proc.time()
+    if(is.character(df[[i]]) | is.factor(df[[i]])){
+      print(paste0('number of NA in ', names(df)[i], ' = ', sum(is.na(df[i]))))
+      values = unique(df[[i]])
+      for(group.num in 1:(length(values)/2)){
+        group1.num = group.num
+        group2.num = length(values) - group1.num
+        group1.prob = as.data.frame(combn(values, group1.num))
+        for(group1.case in 1:ncol(group1.prob)){
+          gini.case = gini_index(df[[target_col_name]], df[[i]] %in% group1.prob[[group1.case]])
+          tmp = data.frame(feature.name = names(df)[i],
+                           group1 = paste(group1.prob[[group1.case]], collapse = ', '),
+                           group2 = paste(values[!(values %in% group1.prob[[group1.case]])], collapse = ', '),
+                           gini.score = gini.case,
+                           stringsAsFactors = F)
+          cat.gini = rbind(cat.gini, tmp)
+        }
+      }
+    } else {
+      stop(paste0(names(df)[i],' is not character or factor'))
+    }
+    print(proc.time() - pt)
+  }
+  return(cat.gini)
+}
+
+
 
 
 
@@ -48,8 +153,8 @@ gini.num = all_gini_num(train_cc, 'Ever30plus_n12MTH', c(29,47))
 ##### TESTING :
 optimize(f = gini_index2,
          classes = train_cc$Ever30plus_n12MTH,
-         var = train_cc$Loan_amount1,
-         interval = c(min(train_cc$Loan_amount1), max(train_cc$Loan_amount1)))
+         var = as.numeric(train_cc$DATE_ACCOUNT_OPENED) ,
+         interval = c(15401, 16708))
 
 x = unique(train_cc$Loan_amount1)
 y = c()
@@ -69,13 +174,21 @@ min(sapply(x, FUN =gini_index2, classes = train_cc$Ever30plus_n12MTH, var = trai
 
 cutoff = seq(min(train_cc$Loan_amount1), max(train_cc$Loan_amount1),
              length.out = 10) 
-sa = GenSA(par = cutoff[1],
-           fn = gini_index2, 
-           classes = train_cc$Ever30plus_n12MTH, 
-           var = train_cc$Loan_amount1, 
-           lower = min(train_cc$Loan_amount1), 
-           upper = max(train_cc$Loan_amount1),
-           control = list(max.time = 3))
+
+cutoffs = boxplot.stats(as.numeric(unique(train_cc$stdUtil1to6)))$stats
+len = seq(cutoffs[1], cutoffs[5], length.out = 10)
+globalmin = 0
+for(i in 1:(length(len)-1)){
+  sa = GenSA(fn = gini_index2, 
+             classes = train_cc$Ever30plus_n12MTH, 
+             var = as.numeric(train_cc$DATE_ACCOUNT_OPENED), 
+             lower = len[i], 
+             upper = len[i+1],
+             control = list(max.time = 10))
+  if(sa$value < globalmin){
+    globalSA = sa
+  }
+}
 
 
 

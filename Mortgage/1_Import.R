@@ -120,13 +120,13 @@ df = df[, c("SYSTEM_ID", "TRADE_SERIAL", "ID", "CUSTOMER_TYPE", "OWNERSHIP_INDIC
 
 # add new vars
 df$nUtil123 = apply(df[, c('Utilization1', 'Utilization2', 'Utilization3')], 1, function(x) {sum(!is.na(x))}) 
-df$stdUtil123 = apply(df[ , c('Utilization1', 'Utilization2', 'Utilization3')], 1, sd, na.rm = T)
+df$stdUtil123 = apply(df[ , c('Utilization1', 'Utilization2', 'Utilization3')], 1, function(x) {sd(x, na.rm = T)/mean(x, na.rm = T)} )
 
 df$nUtil456 = apply(df[, c('Utilization4', 'Utilization5', 'Utilization6')], 1, function(x) {sum(!is.na(x))})
-df$stdUtil456 = apply(df[ , c('Utilization4', 'Utilization5', 'Utilization6')], 1, sd, na.rm = T)
+df$stdUtil456 = apply(df[ , c('Utilization4', 'Utilization5', 'Utilization6')], 1, function(x) {sd(x, na.rm = T)/mean(x, na.rm = T)})
 
 df$nUtil1to6 = apply(df[, c('Utilization1', 'Utilization2', 'Utilization3', 'Utilization4', 'Utilization5', 'Utilization6')], 1, function(x) {sum(!is.na(x))})
-df$stdUtil1to6 = apply(df[ , c('Utilization1', 'Utilization2', 'Utilization3', 'Utilization4', 'Utilization5', 'Utilization6')], 1, sd, na.rm = T)
+df$stdUtil1to6 = apply(df[ , c('Utilization1', 'Utilization2', 'Utilization3', 'Utilization4', 'Utilization5', 'Utilization6')], 1, function(x) {sd(x, na.rm = T)/mean(x, na.rm = T)})
 
 df$nloans = apply(df[, 96:105], 1, sum)
 df$nactiveloans = apply(df[, 106:115], 1, sum)

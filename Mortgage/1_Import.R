@@ -118,6 +118,15 @@ df = df[, c("SYSTEM_ID", "TRADE_SERIAL", "ID", "CUSTOMER_TYPE", "OWNERSHIP_INDIC
 
 #---------------------------------------------
 
+# change type :
+for(i in c("Delay_Payment_code1", "Delay_Payment_code2", "Delay_Payment_code3", "Delay_Payment_code4", "Delay_Payment_code5", "Delay_Payment_code6")){
+  df[[i]] = ifelse(df[[i]] == 'F', '10', 
+                   ifelse(df[[i]] == 'Y', '1',
+                          ifelse(df[[i]] == 'N', '0', df[[i]])))
+  df[[i]] = as.numeric(df[[i]])
+}
+
+
 # add new vars
 df$nUtil123 = apply(df[, c('Utilization1', 'Utilization2', 'Utilization3')], 1, function(x) {sum(!is.na(x))}) 
 df$stdUtil123 = apply(df[ , c('Utilization1', 'Utilization2', 'Utilization3')], 1, function(x) {sd(x, na.rm = T)/mean(x, na.rm = T)} )
@@ -180,19 +189,19 @@ df$is.DeLoOw6.NA = ifelse(is.na(df$Delay_Payment_code6),
                           'No')   
 
 df$Delay_Payment_code2 = ifelse(is.na(df$Delay_Payment_code2),
-                                '-1',
+                                0,
                                 df$Delay_Payment_code2)
 df$Delay_Payment_code3 = ifelse(is.na(df$Delay_Payment_code3),
-                                '-1',
+                                0,
                                 df$Delay_Payment_code3)
 df$Delay_Payment_code4 = ifelse(is.na(df$Delay_Payment_code4),
-                                '-1',
+                                0,
                                 df$Delay_Payment_code4)
 df$Delay_Payment_code5 = ifelse(is.na(df$Delay_Payment_code5),
-                                '-1',
+                                0,
                                 df$Delay_Payment_code5)
 df$Delay_Payment_code6 = ifelse(is.na(df$Delay_Payment_code6),
-                                '-1',
+                                0,
                                 df$Delay_Payment_code6)
 df$Loan_amount2 = ifelse(is.na(df$Loan_amount2),
                          0,

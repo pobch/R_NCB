@@ -57,38 +57,36 @@ all_gini_num = function(df, target_col_name, features_col_range) {
 }
 
 # for categorical independent var:
-all_gini_cat = function(df, target_col_name, features_col_range){
-  cat.gini = data.frame(feature.name = character(),
-                        group1 = character(),
-                        group2 = character(),
-                        gini.score = numeric(),
-                        stringsAsFactors = F)
+all_gini_cat = function(df, target_col_num, features_col_range){
+  cat.gini = data.frame()
   for(i in features_col_range){
-    pt = proc.time()
-    if(is.character(df[[i]]) | is.factor(df[[i]])){
-      print(paste0('number of NA in ', names(df)[i], ' = ', sum(is.na(df[i]))))
+    if(is.character(df[[i]])){
+      print(paste0('processing ', names(df)[i], ', NA = ', sum(is.na(df[i]))))
       values = unique(df[[i]])
       for(group.num in 1:(length(values)/2)){
         group1.num = group.num
         group2.num = length(values) - group1.num
         group1.prob = as.data.frame(combn(values, group1.num))
         for(group1.case in 1:ncol(group1.prob)){
-          gini.case = gini_index(df[[target_col_name]], df[[i]] %in% group1.prob[[group1.case]])
+          gini.case = gini_index(df[[target_col_num]], df[[i]] %in% group1.prob[[group1.case]])
           tmp = data.frame(feature.name = names(df)[i],
-                           group1 = paste(group1.prob[[group1.case]], collapse = ', '),
-                           group2 = paste(values[!(values %in% group1.prob[[group1.case]])], collapse = ', '),
-                           gini.score = gini.case,
+                           threshold.cat.g1 = paste(group1.prob[[group1.case]], collapse = ', '),
+                           threshold.cat.g2 = paste(values[!(values %in% group1.prob[[group1.case]])], collapse = ', '),
+                           gini = gini.case,
                            stringsAsFactors = F)
           cat.gini = rbind(cat.gini, tmp)
         }
       }
     } else {
-      stop(paste0(names(df)[i],' is not character or factor'))
+      stop(paste0(names(df)[i],' is not character'))
     }
-    print(proc.time() - pt)
   }
   return(cat.gini)
 }
+
+
+############################################# END #######################################
+
 
 
 #------------------ test : import

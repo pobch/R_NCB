@@ -485,8 +485,9 @@ subdf_od = df[which(df$ACCOUNT_TYPE == '04'), c(
             
             "Ever30plus_n12MTH")]
 
-#---------------------- split train/test for CC loan:
 df2 = select(subdf, -SYSTEM_ID, -TRADE_SERIAL, -CUSTOMER_TYPE, -All_Payment_code)
+
+#---------------------- split train/test for CC loan:
 
 subdf_cc = df2 %>% 
   subset(ACCOUNT_TYPE == '22') %>% 
@@ -501,117 +502,44 @@ spl = sample.split(subdf_cc$Ever30plus_n12MTH, SplitRatio = 0.7)
 train_cc = subset(subdf_cc, spl == T)
 test_cc = subset(subdf_cc, spl == F)
 
-# # ---------------------- sampling :
-# # over sampling :
-# train.over = ovun.sample(Ever30plus_n12MTH ~ ., 
-#                          data = train_cc, 
-#                          method = 'over', 
-#                          N = 31390*2 )$data
-# # under sampling :
-# train.under = ovun.sample(Ever30plus_n12MTH ~ ., 
-#                          data = train_cc, 
-#                          method = 'under', 
-#                          N =  713 * 2,
-#                          seed = 123)$data
-# # both over and under sampling :
-# train.both = ovun.sample(Ever30plus_n12MTH ~ ., 
-#                          data = train_cc, 
-#                          method = 'both', 
-#                          p = 0.5,
-#                          N =  32103,
-#                          seed = 123)$data
-# # ROSE (failed) :
-# train_cc[c('REPORT_DATE', 'DATE_ACCOUNT_OPENED', 'DATE_ACCOUNT_CLOSED', 'DATE_LAST_PAYMENT', 'DEFAULT_DATE', 'DATE_LAST_RESTRUCTURED')] = lapply(train_cc[c('REPORT_DATE', 'DATE_ACCOUNT_OPENED', 'DATE_ACCOUNT_CLOSED', 'DATE_LAST_PAYMENT', 'DEFAULT_DATE', 'DATE_LAST_RESTRUCTURED')], as.numeric)
-# train_cc = as.data.frame(unclass(train_cc))
-# train_cc$max_util_momentum = ifelse(train_cc$max_util_momentum == -Inf | train_cc$max_util_momentum == Inf,
-#                                     999999999,
-#                                     train_cc$max_util_momentum)
-# train_cc$min_util_momentum = ifelse(train_cc$min_util_momentum == -Inf | train_cc$min_util_momentum == Inf,
-#                                     999999999,
-#                                     train_cc$min_util_momentum)
-# train.rose = ROSE(Ever30plus_n12MTH ~ .,
-#                   data = train_cc,
-#                   seed = 1)$data
-# # trees :
-# tree.over = rpart(Ever30plus_n12MTH ~ ., data = train.over, method = 'class')
-# tree.under = rpart(Ever30plus_n12MTH ~ ., data = train.under, method = 'class')
-# tree.both = rpart(Ever30plus_n12MTH ~ ., data = train.both, method = 'class')
-# # failed :
-# tree.rose = rpart(Ever30plus_n12MTH ~ ., data = train.rose, method = 'class')
-# 
-# # predict :
-# pred.over = predict(tree.over, newdata = test_cc)
-# pred.under = predict(tree.under, newdata = filter(test_cc, TYPE_OF_CREDIT_CARD != '02'))
-# pred.both = predict(tree.both, newdata = test_cc)
-# # failed :
-# test_cc[c('REPORT_DATE', 'DATE_ACCOUNT_OPENED', 'DATE_ACCOUNT_CLOSED', 'DATE_LAST_PAYMENT', 'DEFAULT_DATE', 'DATE_LAST_RESTRUCTURED')] = lapply(test_cc[c('REPORT_DATE', 'DATE_ACCOUNT_OPENED', 'DATE_ACCOUNT_CLOSED', 'DATE_LAST_PAYMENT', 'DEFAULT_DATE', 'DATE_LAST_RESTRUCTURED')], as.numeric)
-# test_cc = as.data.frame(unclass(test_cc))
-# test_cc$max_util_momentum = ifelse(test_cc$max_util_momentum == -Inf | test_cc$max_util_momentum == Inf,
-#                                     999999999,
-#                                     test_cc$max_util_momentum)
-# test_cc$min_util_momentum = ifelse(test_cc$min_util_momentum == -Inf | test_cc$min_util_momentum == Inf,
-#                                     999999999,
-#                                     test_cc$min_util_momentum)
-# pred.rose = predict(tree.rose, newdata = test_cc, type = 'prob')
-# 
-# 
-# # ROC :
-# roc.curve(test_cc$Ever30plus_n12MTH, pred.over[,2])
-# roc.curve(filter(test_cc, TYPE_OF_CREDIT_CARD != '02')$Ever30plus_n12MTH, pred.under[,2])
-# roc.curve(test_cc$Ever30plus_n12MTH, pred.both[,2])
-# # failed:
-# roc.curve(test_cc$Ever30plus_n12MTH, pred.rose[,2])
-# 
-# 
-# 
-# # ---------------------- cross validate:
-# tr.control = trainControl(method = 'cv', number = 10)
-# cp.grid = expand.grid(.cp = seq(0, 0.02, 0.001))
-# set.seed(123)
-# train(Ever30plus_n12MTH ~ ., data = train_cc, method = 'rpart', trControl = tr.control, tuneGrid = cp.grid)
-# 
-# # ---------------------- choose cp and build tree:
-# mod.cc = rpart(Ever30plus_n12MTH ~ ., data = train_cc, method = 'class', cp =0.006)
-# pred.cc = predict(mod.cc, newdata = test_cc, type = 'prob')
-# 
-# # ---------------------- evaluate model:
-# windows(height = 720, width = 1280)
-# prp(mod.cc, cex = 0.7)
-# 
-# table(test_cc$Ever30plus_n12MTH, pred.cc[,2] > 0.19)
-# predROCR = prediction(pred.cc[,2], test_cc$Ever30plus_n12MTH)
-# perf = performance(predROCR, 'tpr', 'fpr')
-# as.numeric(performance(predROCR, 'auc')@y.values)
-# 
-# graphics.off()
-# x11(h=10, w=10)
-# plot(perf, colorize = T, print.cutoffs.at = seq(0,1,0.01), text.adj = c(0,1))
-# 
-# # ----------------------------------------------------------------------------------------
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# # ----- HOW TO DO Cross Validate & CART:
-# 
-# df2 = select(subdf, -SYSTEM_ID, -TRADE_SERIAL, -CUSTOMER_TYPE, -All_Payment_code)
-# # df3 = na.omit(df2)
-# # df4 = lapply(df3, function(x) { if (class(x) == 'character') {x = as.factor(x)} else { x = x }})
-# tr.control = trainControl(method = 'cv', number = 10)
-# cp.grid = expand.grid(.cp = seq(0, 0.002, 0.0001))
-# train(Ever30plus_n12MTH ~ ., data = df2, method = 'rpart', trControl = tr.control, tuneGrid = cp.grid)
-# mod1 = rpart(Ever30plus_n12MTH ~ ., data = df2, method = 'class', cp =0.001)
-# 
-# 
-# 
-# 
-# 
-# # ------------------------------------- TEMP ----------------------
-# # PL-revo, PL-non-revo, CC, OD
-# plrevo = dfopen[dfopen$ACCOUNT_TYPE == '05' & dfopen$INSTALLMENT_AMOUNT == 0, ]
-# plnonrevo = dfopen[dfopen$ACCOUNT_TYPE == '05' & dfopen$INSTALLMENT_AMOUNT > 0,]
-# ccdf = dfopen[dfopen$ACCOUNT_TYPE == '22', ]
-# oddf = dfopen[dfopen$ACCOUNT_TYPE == '04', ]
+#----------------------- split train/test for P-Loan:
+
+# PL not-installment loan:
+subdf_pl = df2 %>% 
+  subset(ACCOUNT_TYPE == '05' & INSTALLMENT_AMOUNT == 0) %>% 
+  select(-INSTALLMENT_NUMBER_PAYMENT, -INSTALLMENT_AMOUNT, -ACCOUNT_TYPE,
+         -Num_CC, -Num_HP, -Num_HL, -Num_OD, -Num_OTH_HP, 
+         -Num_CL, -Num_COL, -Num_RD, -Num_OL, 
+         -Num_A_CC, -Num_A_HP, -Num_A_HL, -Num_A_OD, 
+         -Num_A_OTH_HP, -Num_A_CL, -Num_A_COL, -Num_A_RD, -Num_A_OL, 
+         -nloans, -nactiveloans)
+
+set.seed(123)
+spl = sample.split(subdf_pl$Ever30plus_n12MTH, SplitRatio = 0.7)
+train_pl = subset(subdf_pl, spl == T)
+test_pl = subset(subdf_pl, spl == F)
+  
+
+# PL installment loan:
+subdf_pl_in = df2 %>% 
+  subset(ACCOUNT_TYPE == '05' & INSTALLMENT_AMOUNT != 0) %>% 
+  select(-ACCOUNT_TYPE, -MINIMUM_PERCENT_PAYMENT,
+         -Num_CC, -Num_HP, -Num_HL, -Num_OD, -Num_OTH_HP, 
+         -Num_CL, -Num_COL, -Num_RD, -Num_OL, 
+         -Num_A_CC, -Num_A_HP, -Num_A_HL, -Num_A_OD, 
+         -Num_A_OTH_HP, -Num_A_CL, -Num_A_COL, -Num_A_RD, -Num_A_OL, 
+         -nloans, -nactiveloans)
+
+set.seed(123)
+spl = sample.split(subdf_pl_in$Ever30plus_n12MTH, SplitRatio = 0.7)
+train_pl_in = subset(subdf_pl_in, spl == T)
+test_pl_in = subset(subdf_pl_in, spl == F)
+
+
+#------------------------
+
+
+
+
+
+

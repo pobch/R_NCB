@@ -175,7 +175,7 @@ del_cols2 = c('Momentum1',
               'Delay_Payment_code5', 
               'Delay_Payment_code6',
               'MINIMUM_PERCENT_PAYMENT')
-all.gini = all_gini(train_mg, 117, 1:116, del_cols2)
+all.gini = all_gini(train_mg, 102, 1:101, del_cols2)
 all.gini = all.gini %>% 
   mutate(the.rank = rank(gini)) %>% 
   arrange(gini)
@@ -183,6 +183,6 @@ all.gini = all.gini %>%
 # -------------------------------- How to choose a new threshold:
 # test = thres.changer(all.gini, train_mg, 'Ever30plus_n12MTH', 'Utilization1', 0.7)
 # test %>% arrange(gini)
-# 
+
 
 
